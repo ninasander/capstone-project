@@ -30,6 +30,7 @@ const PlayerEntryStyled = styled.div`
     fixed no-repeat;
   color: white;
   border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
   h2,
   p {
     align-self: center;
