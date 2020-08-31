@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import HPCounter from './HPCounter'
 
 EnemyEntry.propTypes = {
   enemy: PropTypes.string.isRequired,
@@ -13,6 +14,7 @@ export default function EnemyEntry({ enemy, ac, maxHP }) {
     <EnemyEntryStyled>
       <h2>{enemy}</h2>
       <p>HP: {maxHP}</p>
+      <HPCounter />
       <p>AC: {ac}</p>
     </EnemyEntryStyled>
   )
