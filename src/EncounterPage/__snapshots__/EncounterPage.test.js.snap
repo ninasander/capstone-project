@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EncounterPage renders correctly 1`] = `
+Array [
+  .c0 {
+  margin: 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: hsla(208,40%,28%,1);
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c0 h2 {
+  grid-column: span 2;
+  margin: 0;
+}
+
+.c0 p {
+  margin: 20px 0 0;
+}
+
+<div
+    className="c0"
+  >
+    <h2>
+      Enemy 1
+    </h2>
+    <p>
+      HP: 
+      50
+    </p>
+    <p>
+      AC: 
+      17
+    </p>
+  </div>,
+  .c0 {
+  margin: 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c0 h2,
+.c0 p {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 0;
+}
+
+<div
+    className="c0"
+  >
+    <h2>
+      Player 1
+    </h2>
+    <p>
+      AC: 
+      16
+    </p>
+  </div>,
+  .c0 {
+  margin: 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: hsla(208,40%,28%,1);
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c0 h2 {
+  grid-column: span 2;
+  margin: 0;
+}
+
+.c0 p {
+  margin: 20px 0 0;
+}
+
+<div
+    className="c0"
+  >
+    <h2>
+      Enemy 2
+    </h2>
+    <p>
+      HP: 
+      30
+    </p>
+    <p>
+      AC: 
+      17
+    </p>
+  </div>,
+]
+`;
