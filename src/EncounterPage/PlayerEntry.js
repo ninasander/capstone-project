@@ -1,5 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+PlayerEntry.propTypes = {
+  player: PropTypes.string.isRequired,
+  ac: PropTypes.number.isRequired,
+}
 
 export default function PlayerEntry({ player, ac }) {
   return (

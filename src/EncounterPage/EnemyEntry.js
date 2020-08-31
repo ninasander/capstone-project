@@ -1,5 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+EnemyEntry.propTypes = {
+  enemy: PropTypes.string.isRequired,
+  ac: PropTypes.number.isRequired,
+  maxHP: PropTypes.number.isRequired,
+}
 
 export default function EnemyEntry({ enemy, ac, maxHP }) {
   return (
