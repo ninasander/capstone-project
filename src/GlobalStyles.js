@@ -5,6 +5,9 @@ export default createGlobalStyle`
     box-sizing: border-box;
     
 }
+html{
+    transform: scaleX(1) scaleY(1) !important;
+}
 body {
     font-size: 112.5%;
     margin: 0;
