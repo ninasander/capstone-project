@@ -3,10 +3,15 @@ import styled from 'styled-components/macro'
 
 export default function CounterButton({ operator, onClick }) {
   return (
-    <ButtonStyled type="button" onClick={onClick}>
+    <ButtonStyled operator={operator} type="button" onClick={onClick}>
       {operator}
     </ButtonStyled>
   )
+}
+
+const operatorColors = {
+  '+': 'green',
+  '-': 'red',
 }
 
 const ButtonStyled = styled.button`
@@ -15,4 +20,5 @@ const ButtonStyled = styled.button`
   width: fit-content;
   height: fit-content;
   text-align: center;
+  background: ${(props) => operatorColors[props.operator]};
 `

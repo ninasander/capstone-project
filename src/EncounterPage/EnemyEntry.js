@@ -6,11 +6,13 @@ import HPCounter from './HPCounter'
 EnemyEntry.propTypes = {
   enemy: PropTypes.string.isRequired,
   ac: PropTypes.number.isRequired,
+  HP: PropTypes.number.isRequired,
   maxHP: PropTypes.number.isRequired,
 }
 
 export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
-  const [currentHP, setCurrentHP] = useState(HP)
+  const [currentHP, setCurrentHP] = useState(Number(HP))
+
   return (
     <EnemyEntryStyled>
       <h2>{enemy}</h2>

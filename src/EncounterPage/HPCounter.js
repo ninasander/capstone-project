@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CounterButton from './CounterButton'
 import styled from 'styled-components'
 
-export default function HPCounter() {
+export default function HPCounter({ setCurrentHP, currentHP }) {
+  const [input, setInput] = useState('')
   return (
     <>
-      <InputStyled name="HPInput" type="number" />
-      <CounterButton onClick={calculateHP} operator="+" />
-      <CounterButton onClick={calculateHP} operator="-" />
+      <InputStyled
+        value={input}
+        onChange={(event) => setInput(event.target.value)}
+        name="HPInput"
+        type="number"
+      />
+      <CounterButton onClick={addToHP} operator="+" />
+      <CounterButton onClick={subtractFromHP} operator="-" />
     </>
   )
 
-  function calculateHP({ currentHP, setCurrentHP }) {
-    const inputNumber = InputStyled.value
-    setCurrentHP(currentHP + inputNumber)
+  function addToHP() {
+    setCurrentHP(currentHP + Number(input))
+    setInput('')
+  }
+  function subtractFromHP() {
+    setCurrentHP(currentHP - Number(input))
+    setInput('')
   }
 }
 
