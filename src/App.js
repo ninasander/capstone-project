@@ -1,7 +1,8 @@
 import React from 'react'
+import EncounterPage from './EncounterPage/EncounterPage'
 
 function App() {
-  return <div></div>
+  return <EncounterPage />
 }
 
 export default App
