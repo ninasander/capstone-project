@@ -11,7 +11,7 @@ EnemyEntry.propTypes = {
 export default function EnemyEntry({ enemy, ac, maxHP }) {
   return (
     <EnemyEntryStyled>
-      <h2>{enemy}</h2>
+      <h1>{enemy}</h1>
       <p>HP: {maxHP}</p>
       <p>AC: {ac}</p>
     </EnemyEntryStyled>
@@ -34,9 +34,10 @@ const EnemyEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
-  h2 {
+  h1 {
     grid-column: span 2;
     margin: 0;
+    font-size: 140%;
   }
   p {
     margin: 20px 0 0;

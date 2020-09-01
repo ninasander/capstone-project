@@ -10,7 +10,7 @@ PlayerEntry.propTypes = {
 export default function PlayerEntry({ player, ac }) {
   return (
     <PlayerEntryStyled>
-      <h2>{player}</h2>
+      <h1>{player}</h1>
       <p>AC: {ac}</p>
     </PlayerEntryStyled>
   )
@@ -31,7 +31,10 @@ const PlayerEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
-  h2,
+  h1 {
+    margin: 0;
+    font-size: 140%;
+  }
   p {
     align-self: center;
     margin: 0;
