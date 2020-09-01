@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import HPCounter from './HPCounter'
@@ -9,12 +9,15 @@ EnemyEntry.propTypes = {
   maxHP: PropTypes.number.isRequired,
 }
 
-export default function EnemyEntry({ enemy, ac, maxHP }) {
+export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
+  const [currentHP, setCurrentHP] = useState(HP)
   return (
     <EnemyEntryStyled>
       <h2>{enemy}</h2>
-      <p>HP: {maxHP}</p>
-      <HPCounter />
+      <p>
+        HP: {currentHP}/{maxHP}
+      </p>
+      <HPCounter currentHP={currentHP} setCurrentHP={setCurrentHP} />
       <p>AC: {ac}</p>
     </EnemyEntryStyled>
   )

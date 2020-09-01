@@ -2,7 +2,23 @@
 
 exports[`EncounterPage renders correctly 1`] = `
 Array [
-  .c0 {
+  .c2 {
+  font-size: 100%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+
+.c1 {
+  width: 50px;
+}
+
+.c0 {
   margin: 20px;
   padding: 20px;
   display: grid;
@@ -31,8 +47,28 @@ Array [
     </h2>
     <p>
       HP: 
+      /
       50
     </p>
+    <input
+      className="c1"
+      name="HPInput"
+      type="number"
+    />
+    <button
+      className="c2"
+      onClick={[Function]}
+      type="button"
+    >
+      +
+    </button>
+    <button
+      className="c2"
+      onClick={[Function]}
+      type="button"
+    >
+      -
+    </button>
     <p>
       AC: 
       17
@@ -68,7 +104,23 @@ Array [
       16
     </p>
   </div>,
-  .c0 {
+  .c2 {
+  font-size: 100%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+
+.c1 {
+  width: 50px;
+}
+
+.c0 {
   margin: 20px;
   padding: 20px;
   display: grid;
@@ -97,8 +149,28 @@ Array [
     </h2>
     <p>
       HP: 
+      /
       30
     </p>
+    <input
+      className="c1"
+      name="HPInput"
+      type="number"
+    />
+    <button
+      className="c2"
+      onClick={[Function]}
+      type="button"
+    >
+      +
+    </button>
+    <button
+      className="c2"
+      onClick={[Function]}
+      type="button"
+    >
+      -
+    </button>
     <p>
       AC: 
       17
