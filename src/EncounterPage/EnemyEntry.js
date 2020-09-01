@@ -17,9 +17,13 @@ export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
     <EnemyEntryStyled>
       <h2>{enemy}</h2>
       <p>
-        HP: {currentHP}/{maxHP}
+        HP: {currentHP > 0 ? currentHP : 0}/{maxHP}
       </p>
-      <HPCounter currentHP={currentHP} setCurrentHP={setCurrentHP} />
+      <HPCounter
+        currentHP={currentHP}
+        maxHP={maxHP}
+        setCurrentHP={setCurrentHP}
+      />
       <p>AC: {ac}</p>
     </EnemyEntryStyled>
   )
