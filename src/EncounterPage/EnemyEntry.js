@@ -23,7 +23,6 @@ const EnemyEntryStyled = styled.div`
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
       hsla(208, 40%, 28%, 1) 0%,
