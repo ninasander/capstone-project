@@ -8,9 +8,6 @@ describe('CalculatorButton', () => {
     const tree = renderer.create(<CalculatorButton operator="+" />)
     expect(tree).toMatchSnapshot()
   })
-})
-
-describe('CalculatorButton', () => {
   it('renders subtractButton correctly', () => {
     const tree = renderer.create(<CalculatorButton operator="-" />)
     expect(tree).toMatchSnapshot()

@@ -101,7 +101,7 @@ exports[`EnemyEntry renders correctly 1`] = `
       min={0}
       name="HPInput"
       onChange={[Function]}
-      type="number"
+      type="tel"
       value=""
     />
     <button

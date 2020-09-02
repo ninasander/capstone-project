@@ -102,7 +102,7 @@ Array [
         min={0}
         name="HPInput"
         onChange={[Function]}
-        type="number"
+        type="tel"
         value=""
       />
       <button
@@ -249,7 +249,7 @@ Array [
         min={0}
         name="HPInput"
         onChange={[Function]}
-        type="number"
+        type="tel"
         value=""
       />
       <button

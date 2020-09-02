@@ -10,9 +10,9 @@ export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
       <InputStyled
         min={0}
         value={hpInputValue}
-        onChange={handleChange}
+        onChange={(event) => handleChange(event)}
         name="HPInput"
-        type="number"
+        type="tel"
       />
 
       <CalculatorButton onClick={subtractFromHP} operator="-" />
@@ -23,7 +23,6 @@ export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
     const regexp = new RegExp('^[0-9]+$')
     if (regexp.test(hpInputValue)) {
       setHpInputValue(hpInputValue)
-      onChange(hpInputValue)
     }
   }
 
