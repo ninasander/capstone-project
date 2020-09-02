@@ -33,7 +33,9 @@ const EnemyEntryStyled = styled.div`
   margin: 20px;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
   background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
@@ -46,10 +48,10 @@ const EnemyEntryStyled = styled.div`
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
   h2 {
-    grid-column: span 2;
+    grid-column: span 3;
     margin: 0;
   }
   p {
-    margin: 20px 0 0;
+    margin: 0;
   }
 `

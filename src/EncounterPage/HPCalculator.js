@@ -1,33 +1,41 @@
 import React, { useState } from 'react'
-import CounterButton from './CounterButton'
+import CalculatorButton from './CalculatorButton'
 import styled from 'styled-components'
 
 export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
-  const [input, setInput] = useState('')
+  const [hpInputValue, setHpInputValue] = useState('')
   return (
     <CounterStyled>
-      <CounterButton onClick={addToHP} operator="+" />
+      <CalculatorButton onClick={addToHP} operator="+" />
       <InputStyled
         min={0}
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
+        value={hpInputValue}
+        onChange={handleChange}
         name="HPInput"
         type="number"
       />
 
-      <CounterButton onClick={subtractFromHP} operator="-" />
+      <CalculatorButton onClick={subtractFromHP} operator="-" />
     </CounterStyled>
   )
+  function handleChange(event, onChange) {
+    const hpInputValue = event.target.value
+    const regexp = new RegExp('^[0-9]+$')
+    if (regexp.test(hpInputValue)) {
+      setHpInputValue(hpInputValue)
+      onChange(hpInputValue)
+    }
+  }
 
   function addToHP() {
-    const calculatedHP = currentHP + Number(input)
+    const calculatedHP = currentHP + Number(hpInputValue)
     setCurrentHP(calculatedHP > maxHP ? maxHP : calculatedHP)
-    setInput('')
+    setHpInputValue('')
   }
   function subtractFromHP() {
-    const calculatedHP = currentHP - Number(input)
+    const calculatedHP = currentHP - Number(hpInputValue)
     setCurrentHP(calculatedHP < 0 ? 0 : calculatedHP)
-    setInput('')
+    setHpInputValue('')
   }
 }
 

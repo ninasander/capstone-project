@@ -3,10 +3,12 @@ import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import EnemyEntry from '../EncounterPage/EnemyEntry'
 import 'jest-styled-components'
+import currentHP from './EnemyEntry'
 
 describe('EnemyEntry', () => {
   const enemy = 'Enemy 1'
   const maxHP = 50
+  const HP = currentHP > 0 ? currentHP : 0
   const ac = 17
 
   it('displays the enemy name', () => {
@@ -16,13 +18,13 @@ describe('EnemyEntry', () => {
 
     expect(getByText(enemy)).toBeInTheDocument()
   })
-  it('displays the enemy max. HP', () => {
-    const maxHPEntry = 'HP: ' + maxHP
+  it('displays the current and max HP of the enemy', () => {
+    const HPEntry = 'HP: ' + HP + '/' + maxHP
     const { getByText } = render(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} ac={ac} />
+      <EnemyEntry enemy={enemy} maxHP={maxHP} currentHP={currentHP} ac={ac} />
     )
 
-    expect(getByText(maxHPEntry)).toBeInTheDocument()
+    expect(getByText(HPEntry)).toBeInTheDocument()
   })
   it('displays the enemy AC', () => {
     const acEntry = 'AC: ' + ac

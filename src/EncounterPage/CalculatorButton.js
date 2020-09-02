@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function CounterButton({ operator, onClick }) {
+export default function CalculatorButton({ operator, onClick }) {
   return (
     <ButtonStyled operator={operator} type="button" onClick={onClick}>
       {operator}
@@ -15,7 +15,7 @@ const operatorColors = {
 }
 
 const ButtonStyled = styled.button`
-  font-size: 100%;
+  font-size: 80%;
   border-style: none;
   width: fit-content;
   height: fit-content;

@@ -2,7 +2,7 @@
 
 exports[`EnemyEntry renders correctly 1`] = `
 .c2 {
-  font-size: 100%;
+  font-size: 80%;
   border-style: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -11,17 +11,52 @@ exports[`EnemyEntry renders correctly 1`] = `
   height: -moz-fit-content;
   height: fit-content;
   text-align: center;
+  background: green;
+}
+
+.c4 {
+  font-size: 80%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background: red;
 }
 
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c3 {
   width: 50px;
+  position: relative;
 }
 
 .c0 {
   margin: 20px;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
   background: hsla(208,40%,28%,1);
   background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
   color: white;
@@ -30,12 +65,12 @@ exports[`EnemyEntry renders correctly 1`] = `
 }
 
 .c0 h2 {
-  grid-column: span 2;
+  grid-column: span 3;
   margin: 0;
 }
 
 .c0 p {
-  margin: 20px 0 0;
+  margin: 0;
 }
 
 <div
@@ -46,28 +81,38 @@ exports[`EnemyEntry renders correctly 1`] = `
   </h2>
   <p>
     HP: 
+    0
     /
     50
   </p>
-  <input
+  <div
     className="c1"
-    name="HPInput"
-    type="number"
-  />
-  <button
-    className="c2"
-    onClick={[Function]}
-    type="button"
   >
-    +
-  </button>
-  <button
-    className="c2"
-    onClick={[Function]}
-    type="button"
-  >
-    -
-  </button>
+    <button
+      className="c2"
+      onClick={[Function]}
+      operator="+"
+      type="button"
+    >
+      +
+    </button>
+    <input
+      className="c3"
+      min={0}
+      name="HPInput"
+      onChange={[Function]}
+      type="number"
+      value=""
+    />
+    <button
+      className="c4"
+      onClick={[Function]}
+      operator="-"
+      type="button"
+    >
+      -
+    </button>
+  </div>
   <p>
     AC: 
     17
