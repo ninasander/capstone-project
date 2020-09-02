@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CounterButton from './CounterButton'
 import styled from 'styled-components'
 
-export default function HPCounter({ setCurrentHP, currentHP, maxHP }) {
+export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
   const [input, setInput] = useState('')
   return (
     <CounterStyled>
