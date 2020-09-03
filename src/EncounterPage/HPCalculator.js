@@ -23,7 +23,7 @@ export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
   function handleChange(event) {
     const hpInputValue = event.target.value
     const regexp = new RegExp('^[0-9]+$')
-    if (regexp.test(hpInputValue)) {
+    if (regexp.test(hpInputValue) || hpInputValue === '') {
       setHpInputValue(hpInputValue)
     }
   }
