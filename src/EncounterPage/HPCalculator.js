@@ -49,4 +49,12 @@ const CounterStyled = styled.div`
 const InputStyled = styled.input`
   width: 50px;
   position: relative;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
 `
