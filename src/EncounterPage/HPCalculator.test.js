@@ -5,12 +5,12 @@ import HPCalculator from './HPCalculator'
 import { render } from '@testing-library/react'
 
 describe('HPCalculator', () => {
-  it('has an input field', () => {
+  it('has one HPInput field', () => {
     const { getByLabelText } = render(<HPCalculator />)
     const result = getByLabelText('HPInput')
     expect(result).toBeInTheDocument()
   })
-  it('has buttons', () => {
+  it('has two buttons', () => {
     const { getAllByRole } = render(<HPCalculator />)
     const result = getAllByRole('button')
     expect(result.length).toEqual(2)

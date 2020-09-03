@@ -81,7 +81,6 @@ exports[`EnemyEntry renders correctly 1`] = `
   </h2>
   <p>
     HP: 
-    NaN
     /
     50
   </p>

@@ -13,13 +13,13 @@ describe('EnemyEntry', () => {
 
   it('displays the enemy name', () => {
     const { getByText } = render(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} ac={ac} />
+      <EnemyEntry enemy={enemy} maxHP={maxHP} ac={ac} HP={HP} />
     )
 
     expect(getByText(enemy)).toBeInTheDocument()
   })
   it('displays the current and max HP of the enemy', () => {
-    const HPEntry = 'HP: 50/50'
+    const HPEntry = 'HP: ' + HP + '/' + maxHP
     const { getByText } = render(
       <EnemyEntry enemy={enemy} maxHP={maxHP} HP={HP} ac={ac} />
     )

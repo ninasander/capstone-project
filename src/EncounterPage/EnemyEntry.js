@@ -11,7 +11,7 @@ EnemyEntry.propTypes = {
 }
 
 export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
-  const [currentHP, setCurrentHP] = useState(Number(HP))
+  const [currentHP, setCurrentHP] = useState(HP)
 
   return (
     <EnemyEntryStyled>
