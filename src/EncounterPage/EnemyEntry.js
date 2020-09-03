@@ -35,7 +35,7 @@ const EnemyEntryStyled = styled.div`
   display: grid;
   grid-gap: 20px;
   justify-content: space-between;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
