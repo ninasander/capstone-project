@@ -18,7 +18,7 @@ export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
       <CalculatorButton onClick={subtractFromHP} operator="-" />
     </CounterStyled>
   )
-  function handleChange(event, onChange) {
+  function handleChange(event) {
     const hpInputValue = event.target.value
     const regexp = new RegExp('^[0-9]+$')
     if (regexp.test(hpInputValue)) {
