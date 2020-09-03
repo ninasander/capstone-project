@@ -6,4 +6,6 @@ export default {
   component: EnemyEntry,
 }
 
-export const Enemy = () => <EnemyEntry enemy={'Enemy 1'} maxHP={50} ac={17} />
+export const Enemy = () => (
+  <EnemyEntry enemy={'Enemy 1'} maxHP={50} ac={17} HP={50} />
+)

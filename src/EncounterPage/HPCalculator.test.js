@@ -8,7 +8,7 @@ describe('HPCalculator', () => {
   it('has an input field', () => {
     const { getByLabelText } = render(<HPCalculator />)
     const result = getByLabelText('HPInput')
-    expect(result.length).toEqual(1)
+    expect(result).toBeInTheDocument()
   })
   it('has buttons', () => {
     const { getAllByRole } = render(<HPCalculator />)

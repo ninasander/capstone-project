@@ -8,7 +8,7 @@ import currentHP from './EnemyEntry'
 describe('EnemyEntry', () => {
   const enemy = 'Enemy 1'
   const maxHP = 50
-  const HP = currentHP
+  const HP = 50
   const ac = 17
 
   it('displays the enemy name', () => {
@@ -21,7 +21,7 @@ describe('EnemyEntry', () => {
   it('displays the current and max HP of the enemy', () => {
     const HPEntry = 'HP: 50/50'
     const { getByText } = render(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} currentHP={50} ac={ac} />
+      <EnemyEntry enemy={enemy} maxHP={maxHP} HP={HP} ac={ac} />
     )
 
     expect(getByText(HPEntry)).toBeInTheDocument()
