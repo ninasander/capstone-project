@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HPCalculator renders correctly 1`] = `
+.c1 {
+  font-size: 80%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background: green;
+}
+
+.c3 {
+  font-size: 80%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background: red;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c2 {
+  width: 50px;
+  position: relative;
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="c1"
+    onClick={[Function]}
+    operator="+"
+    type="button"
+  >
+    +
+  </button>
+  <input
+    aria-label="HPInput"
+    className="c2"
+    min={0}
+    name="HPInput"
+    onChange={[Function]}
+    step="1"
+    type="number"
+    value=""
+  />
+  <button
+    className="c3"
+    onClick={[Function]}
+    operator="-"
+    type="button"
+  >
+    -
+  </button>
+</div>
+`;

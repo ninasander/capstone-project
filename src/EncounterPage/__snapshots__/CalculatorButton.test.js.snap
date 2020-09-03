@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalculatorButton renders addButton correctly 1`] = `
+.c0 {
+  font-size: 80%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background: green;
+}
+
+<button
+  className="c0"
+  operator="+"
+  type="button"
+>
+  +
+</button>
+`;
+
+exports[`CalculatorButton renders subtractButton correctly 1`] = `
+.c0 {
+  font-size: 80%;
+  border-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background: red;
+}
+
+<button
+  className="c0"
+  operator="-"
+  type="button"
+>
+  -
+</button>
+`;
