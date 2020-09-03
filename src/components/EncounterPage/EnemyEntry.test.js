@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import EnemyEntry from '../EncounterPage/EnemyEntry'
+import EnemyEntry from './EnemyEntry'
 import 'jest-styled-components'
 import currentHP from './EnemyEntry'
 
