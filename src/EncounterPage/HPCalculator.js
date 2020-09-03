@@ -12,7 +12,9 @@ export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
         value={hpInputValue}
         onChange={(event) => handleChange(event)}
         name="HPInput"
-        type="tel"
+        aria-label="HPInput"
+        type="number"
+        step="1"
       />
 
       <CalculatorButton onClick={subtractFromHP} operator="-" />

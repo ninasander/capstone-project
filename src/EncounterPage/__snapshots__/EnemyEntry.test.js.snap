@@ -81,7 +81,7 @@ exports[`EnemyEntry renders correctly 1`] = `
   </h2>
   <p>
     HP: 
-    0
+    NaN
     /
     50
   </p>
@@ -97,11 +97,13 @@ exports[`EnemyEntry renders correctly 1`] = `
       +
     </button>
     <input
+      aria-label="HPInput"
       className="c3"
       min={0}
       name="HPInput"
       onChange={[Function]}
-      type="tel"
+      step="1"
+      type="number"
       value=""
     />
     <button
