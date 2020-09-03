@@ -47,9 +47,11 @@ const EnemyEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
+
   h2 {
     grid-column: span 3;
     margin: 0;
+    font-size: 140%;
   }
   p {
     margin: 0;
