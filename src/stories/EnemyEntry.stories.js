@@ -1,5 +1,5 @@
 import React from 'react'
-import EnemyEntry from '../EncounterPage/EnemyEntry'
+import EnemyEntry from '../components/EncounterPage/EnemyEntry'
 
 export default {
   title: 'Enemy Entry',

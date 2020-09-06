@@ -1,18 +1,22 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export default function CreateMonster() {
+export default function CreateMonster({ onAddCreature }) {
   const { register, handleSubmit } = useForm()
-  const onSubmit = (enemyEntry) => console.log(enemyEntry)
+  const onSubmit = (enemyEntry, event) => {
+    //const onSubmit = (journalEntry, event)
+    event.target.reset()
+    onAddCreature(enemyEntry) // onSave(journalEntry)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Add your enemy creatures:</h1>
-      <label htmlFor="Enemy name">Enemy name:</label>
+      <label htmlFor="enemyName">Enemy name:</label>
       <input
         type="text"
         placeholder="Enemy name"
-        name="Enemy name"
+        name="enemyName"
         ref={register({ required: true, min: 1, maxLength: 60 })}
       />
       <label htmlFor="HP">HP:</label>
@@ -27,23 +31,23 @@ export default function CreateMonster() {
           pattern: /^[0-9]+$/i,
         })}
       />
-      <label htmlFor="Armor Class">AC:</label>
+      <label htmlFor="armorClass">AC:</label>
       <input
         type="number"
         placeholder="Armor Class"
-        name="Armor Class"
+        name="armorClass"
         ref={register({
           required: true,
           min: 0,
           maxLength: 2,
-          pattern: /^\S+@\S+$/i,
+          pattern: /^[0-9]+$/i,
         })}
       />
-      <label htmlFor="Initiative">Initiative:</label>
+      <label htmlFor="initiative">Initiative:</label>
       <input
         type="number"
         placeholder="Initiative"
-        name="Initiative"
+        name="initiative"
         ref={register({
           required: true,
           min: 0,

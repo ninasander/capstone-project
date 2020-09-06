@@ -24,7 +24,7 @@ export default function CreatePlayer() {
           required: true,
           min: 0,
           maxLength: 2,
-          pattern: /^\S+@\S+$/i,
+          pattern: /^[0-9]+$/i,
         })}
       />
       <label>Initiative:</label>

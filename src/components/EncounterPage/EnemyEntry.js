@@ -10,12 +10,12 @@ EnemyEntry.propTypes = {
   maxHP: PropTypes.number.isRequired,
 }
 
-export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
+export default function EnemyEntry({ enemyName, armorClass, HP, maxHP }) {
   const [currentHP, setCurrentHP] = useState(HP)
 
   return (
     <EnemyEntryStyled>
-      <h2>{enemy}</h2>
+      <h2>{enemyName}</h2>
       <p>
         HP: {currentHP}/{maxHP}
       </p>
@@ -24,7 +24,7 @@ export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
         maxHP={maxHP}
         setCurrentHP={setCurrentHP}
       />
-      <p>AC: {ac}</p>
+      <p>AC: {armorClass}</p>
     </EnemyEntryStyled>
   )
 }
