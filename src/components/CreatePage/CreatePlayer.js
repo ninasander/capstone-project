@@ -1,25 +1,28 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export default function CreatePlayer() {
+export default function CreatePlayer({ onAddCreature }) {
   const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (playerEntry, event) => {
+    event.target.reset()
+    onAddCreature(playerEntry)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Add your players' stats:</h1>
-      <label>Enemy name:</label>
+      <label>Player name:</label>
       <input
         type="text"
         placeholder="Player name"
-        name="Player name"
+        name="playerName"
         ref={register({ required: true, min: 1, maxLength: 60 })}
       />
       <label>AC:</label>
       <input
         type="number"
         placeholder="Armor Class"
-        name="Armor Class"
+        name="armorClass"
         ref={register({
           required: true,
           min: 0,
@@ -31,7 +34,7 @@ export default function CreatePlayer() {
       <input
         type="number"
         placeholder="Initiative"
-        name="Initiative"
+        name="initiative"
         ref={register({
           required: true,
           min: 0,

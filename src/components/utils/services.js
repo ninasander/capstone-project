@@ -2,10 +2,8 @@ import { loadLocally, saveLocally } from './localStorage'
 import { v4 as uuid } from 'uuid'
 
 export function getCreatureEntries() {
-  const creatureEntries = [
-    { key: 123, enemyName: 'test', hp: 289, ac: 19, initiative: 29 },
-  ]
-  console.log(creatureEntries)
+  const creatureEntries = []
+
   return loadLocally('CreatureEntries', creatureEntries).catch(() => {
     return creatureEntries
   })

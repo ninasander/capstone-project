@@ -3,20 +3,35 @@ import EnemyEntry from './EnemyEntry'
 import PlayerEntry from './PlayerEntry'
 
 export default function EncounterPage({ creatureEntries }) {
-  console.log(creatureEntries)
-  // const sortByInitiative = creatureEntries.sort(
-  //   (entrie1, entrie2) => entrie1.initiative > entrie2.initiative
-  // )
+  const creaturesByInitiative = creatureEntries
+    .slice()
+    .sort((entry1, entry2) => entry1.initiative < entry2.initiative)
 
   return (
     <>
-      {creatureEntries.map((creatureEntry, index) => (
-        <EnemyEntry armorClass={creatureEntry.armorClass} key={index} />
-      ))}
-
-      {/* <EnemyEntry enemy="Enemy 1" maxHP={50} HP={50} ac={17} initiative={18} />
-      <PlayerEntry player="Player 1" ac={16} />
-      <EnemyEntry enemy="Enemy 2" maxHP={30} HP={30} ac={17} /> */}
+      {creaturesByInitiative.map((creatureEntry, index) =>
+        creatureEntry.enemyName ? (
+          <EnemyEntry
+            enemyName={creatureEntry.enemyName}
+            armorClass={creatureEntry.armorClass}
+            HP={creatureEntry.HP}
+            key={index}
+          />
+        ) : (
+          <PlayerEntry
+            playerName={creatureEntry.playerName}
+            armorClass={creatureEntry.armorClass}
+            key={index}
+          />
+        )
+      )}
+      <a href="/">
+        <button onClick={onEndEncounter}>End Encounter</button>
+      </a>
     </>
   )
+
+  function onEndEncounter() {
+    window.localStorage.clear()
+  }
 }
