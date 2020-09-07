@@ -1,11 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export default function CreatePlayer({ onAddCreature }) {
+export default function CreatePlayer({ addCreatureEntry }) {
   const { register, handleSubmit } = useForm()
   const onSubmit = (playerEntry, event) => {
     event.target.reset()
-    onAddCreature(playerEntry)
+    addCreatureEntry(playerEntry)
   }
 
   return (

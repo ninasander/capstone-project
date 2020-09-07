@@ -1,12 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export default function CreateMonster({ onAddCreature }) {
+export default function CreateMonster({ addCreatureEntry }) {
   const { register, handleSubmit } = useForm()
   const onSubmit = (enemyEntry, event) => {
-    //const onSubmit = (journalEntry, event)
     event.target.reset()
-    onAddCreature(enemyEntry) // onSave(journalEntry)
+    addCreatureEntry(enemyEntry)
   }
 
   return (

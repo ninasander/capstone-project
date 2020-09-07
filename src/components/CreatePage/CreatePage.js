@@ -1,26 +1,26 @@
 import React from 'react'
 import CreateMonster from './CreateMonster'
 import CreatePlayer from './CreatePlayer'
-import useCreatureForm from './useCreatureForm'
 
 export default function CreatePage({ creatureEntries, addCreatureEntry }) {
-  // CreatePage ( entries, addEntry)
-  const { onAddCreature } = useCreatureForm(addCreatureEntry) //useJournalForm(addEntry)
-  console.log(creatureEntries)
-  const hasEnemy = creatureEntries.map(
-    (creatureEntry) => creatureEntry.enemyName
-  )
-  console.log(hasEnemy.length)
-  const hasPlayer = creatureEntries.map(
-    (creatureEntry) => creatureEntry.playerName
-  )
-  console.log(hasPlayer.length)
+  const hasEnemy =
+    creatureEntries.filter((creatureEntry) => creatureEntry.enemyName)
+      .length === 0
+      ? false
+      : true
+  const hasPlayer =
+    creatureEntries.filter((creatureEntry) => creatureEntry.playerName)
+      .length === 0
+      ? false
+      : true
+
+  console.log(hasPlayer)
 
   return (
     <>
-      <CreateMonster onAddCreature={onAddCreature} />
-      <CreatePlayer onAddCreature={onAddCreature} />
-      {hasEnemy !== [undefined] && hasPlayer !== [undefined] ? (
+      <CreateMonster addCreatureEntry={addCreatureEntry} />
+      <CreatePlayer addCreatureEntry={addCreatureEntry} />
+      {hasEnemy === true && hasPlayer === true ? (
         <a href="/encounter">
           <button>Start Encounter</button>
         </a>
