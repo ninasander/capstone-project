@@ -1,30 +1,46 @@
 import React from 'react'
 import CreateMonster from './CreateMonster'
 import CreatePlayer from './CreatePlayer'
+import PageButton from '../Buttons/PageButton'
+import styled from 'styled-components/macro'
 
 export default function CreatePage({ creatureEntries, addCreatureEntry }) {
   const hasEnemy =
-    creatureEntries.filter((creatureEntry) => creatureEntry.enemyName)
+    creatureEntries?.filter((creatureEntry) => creatureEntry.enemyName)
       .length === 0
       ? false
       : true
   const hasPlayer =
-    creatureEntries.filter((creatureEntry) => creatureEntry.playerName)
+    creatureEntries?.filter((creatureEntry) => creatureEntry.playerName)
       .length === 0
       ? false
       : true
 
-  console.log(hasPlayer)
-
   return (
-    <>
+    <FormsStyled>
       <CreateMonster addCreatureEntry={addCreatureEntry} />
       <CreatePlayer addCreatureEntry={addCreatureEntry} />
       {hasEnemy === true && hasPlayer === true ? (
         <a href="/encounter">
-          <button>Start Encounter</button>
+          <PageButton type="submit" buttonText="Start Encounter" />
         </a>
-      ) : null}
-    </>
+      ) : (
+        <>
+          <PageButton type="submit" buttonText="Start Encounter" />
+          <WarningStyled>
+            Please add at least one enemy and one player to your encounter.
+          </WarningStyled>
+        </>
+      )}
+    </FormsStyled>
   )
 }
+
+const FormsStyled = styled.div`
+  margin: 20px;
+  color: white;
+`
+const WarningStyled = styled.p`
+  font-size: 80%;
+  text-align: center;
+`

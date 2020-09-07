@@ -7,13 +7,15 @@ EnemyEntry.propTypes = {
   enemyName: PropTypes.string.isRequired,
   armorClass: PropTypes.string.isRequired,
   HP: PropTypes.string.isRequired,
+  initiative: PropTypes.string.isRequired,
 }
 
-export default function EnemyEntry({ enemyName, armorClass, HP }) {
+export default function EnemyEntry({ enemyName, armorClass, HP, initiative }) {
   const [currentHP, setCurrentHP] = useState(HP)
 
   return (
     <EnemyEntryStyled>
+      <h1>{initiative}</h1>
       <h2>{enemyName}</h2>
       <p>
         HP: {currentHP}/{HP}
@@ -30,7 +32,7 @@ const EnemyEntryStyled = styled.div`
   display: grid;
   grid-gap: 20px;
   justify-content: space-between;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr 2fr;
   background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
@@ -42,9 +44,12 @@ const EnemyEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
-
+  h1 {
+    grid-row: span 3;
+    padding-top: 15px;
+  }
   h2 {
-    grid-column: span 3;
+    grid-column: span 2;
     margin: 0;
     font-size: 140%;
   }
