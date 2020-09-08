@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function PageButton({ buttonText }) {
-  return <ButtonStyled>{buttonText}</ButtonStyled>
+export default function PageButton({ buttonText, onClick }) {
+  return <ButtonStyled onClick={onClick}>{buttonText}</ButtonStyled>
 }
 
 const ButtonStyled = styled.button`

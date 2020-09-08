@@ -8,9 +8,19 @@ describe('EncounterPage', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
       <>
-        <EnemyEntry enemy={'Enemy 1'} maxHP={50} ac={17} />
-        <PlayerEntry player={'Player 1'} ac={16} />
-        <EnemyEntry enemy={'Enemy 2'} maxHP={30} ac={17} />
+        <EnemyEntry
+          enemyName={'Enemy 1'}
+          HP={50}
+          armorClass={17}
+          initiative={20}
+        />
+        <PlayerEntry playerName={'Player 1'} armorClass={16} initiative={18} />
+        <EnemyEntry
+          enemyName={'Enemy 2'}
+          HP={30}
+          armorClass={17}
+          initiative={12}
+        />
       </>
     )
     expect(tree).toMatchSnapshot()

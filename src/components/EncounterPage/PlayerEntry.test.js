@@ -5,24 +5,43 @@ import PlayerEntry from '../EncounterPage/PlayerEntry'
 import 'jest-styled-components'
 
 describe('PlayerEntry', () => {
-  const player = 'Player 1'
-  const ac = 16
+  const playerName = 'Player 1'
+  const armorClass = 16
+  const initiative = 18
 
   it('displays the player name', () => {
-    const { getByText } = render(<PlayerEntry player={player} ac={ac} />)
+    const { getByText } = render(
+      <PlayerEntry
+        playerName={playerName}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
+    )
 
-    expect(getByText(player)).toBeInTheDocument()
+    expect(getByText(playerName)).toBeInTheDocument()
   })
 
   it('displays the player AC', () => {
-    const acEntry = 'AC: ' + ac
-    const { getByText } = render(<PlayerEntry player={player} ac={ac} />)
+    const acEntry = 'AC: ' + armorClass
+    const { getByText } = render(
+      <PlayerEntry
+        playerName={playerName}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
+    )
 
     expect(getByText(acEntry)).toBeInTheDocument()
   })
 
   it('renders correctly', () => {
-    const tree = renderer.create(<PlayerEntry player={player} ac={ac} />)
+    const tree = renderer.create(
+      <PlayerEntry
+        playerName={playerName}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
+    )
     expect(tree).toMatchSnapshot()
   })
 })

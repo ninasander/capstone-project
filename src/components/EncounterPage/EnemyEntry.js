@@ -5,9 +5,9 @@ import HPCalculator from './HPCalculator'
 
 EnemyEntry.propTypes = {
   enemyName: PropTypes.string.isRequired,
-  armorClass: PropTypes.string.isRequired,
-  HP: PropTypes.string.isRequired,
-  initiative: PropTypes.string.isRequired,
+  armorClass: PropTypes.number.isRequired,
+  HP: PropTypes.number.isRequired,
+  initiative: PropTypes.number.isRequired,
 }
 
 export default function EnemyEntry({ enemyName, armorClass, HP, initiative }) {
@@ -46,12 +46,13 @@ const EnemyEntryStyled = styled.div`
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
   h1 {
     grid-row: span 3;
-    padding-top: 15px;
+    align-self: center;
   }
   h2 {
     grid-column: span 2;
     margin: 0;
     font-size: 140%;
+    word-break: break-word;
   }
   p {
     margin: 0;

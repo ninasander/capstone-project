@@ -55,6 +55,7 @@ export default function CreatePlayer({ addCreatureEntry }) {
   )
 }
 const FormStyled = styled.form`
+  color: white;
   h1 {
     font-size: 120%;
   }

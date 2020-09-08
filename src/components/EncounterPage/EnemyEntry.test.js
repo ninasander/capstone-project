@@ -3,33 +3,47 @@ import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import EnemyEntry from './EnemyEntry'
 import 'jest-styled-components'
-import currentHP from './EnemyEntry'
 
 describe('EnemyEntry', () => {
-  const enemy = 'Enemy 1'
-  const maxHP = 50
+  const enemyName = 'Enemy 1'
   const HP = 50
-  const ac = 17
+  const armorClass = 17
+  const initiative = 20
 
   it('displays the enemy name', () => {
     const { getByText } = render(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} ac={ac} HP={HP} />
+      <EnemyEntry
+        enemyName={enemyName}
+        HP={HP}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
     )
 
-    expect(getByText(enemy)).toBeInTheDocument()
+    expect(getByText(enemyName)).toBeInTheDocument()
   })
   it('displays the current and max HP of the enemy', () => {
-    const HPEntry = 'HP: ' + HP + '/' + maxHP
+    const HPEntry = 'HP: ' + HP + '/' + HP
     const { getByText } = render(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} HP={HP} ac={ac} />
+      <EnemyEntry
+        enemyName={enemyName}
+        HP={HP}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
     )
 
     expect(getByText(HPEntry)).toBeInTheDocument()
   })
   it('displays the enemy AC', () => {
-    const acEntry = 'AC: ' + ac
+    const acEntry = 'AC: ' + armorClass
     const { getByText } = render(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} ac={ac} />
+      <EnemyEntry
+        enemyName={enemyName}
+        HP={HP}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
     )
 
     expect(getByText(acEntry)).toBeInTheDocument()
@@ -37,7 +51,12 @@ describe('EnemyEntry', () => {
 
   it('renders correctly', () => {
     const tree = renderer.create(
-      <EnemyEntry enemy={enemy} maxHP={maxHP} ac={ac} />
+      <EnemyEntry
+        enemyName={enemyName}
+        HP={HP}
+        armorClass={armorClass}
+        initiative={initiative}
+      />
     )
     expect(tree).toMatchSnapshot()
   })

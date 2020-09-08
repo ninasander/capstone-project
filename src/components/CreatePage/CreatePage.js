@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateMonster from './CreateMonster'
+import CreateMonster from './CreateEnemy'
 import CreatePlayer from './CreatePlayer'
 import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
@@ -38,7 +38,10 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
 
 const FormsStyled = styled.div`
   margin: 20px;
-  color: white;
+
+  a {
+    text-decoration: none;
+  }
 `
 const WarningStyled = styled.p`
   font-size: 80%;

@@ -2,6 +2,7 @@ import React from 'react'
 import EnemyEntry from './EnemyEntry'
 import PlayerEntry from './PlayerEntry'
 import PageButton from '../Buttons/PageButton'
+import styled from 'styled-components'
 
 export default function EncounterPage({ creatureEntries }) {
   const creaturesByInitiative = creatureEntries
@@ -28,9 +29,9 @@ export default function EncounterPage({ creatureEntries }) {
           />
         )
       )}
-      <a href="/">
+      <LinkStyled href="/">
         <PageButton onClick={onEndEncounter} buttonText="End Encounter" />
-      </a>
+      </LinkStyled>
     </>
   )
 
@@ -38,3 +39,7 @@ export default function EncounterPage({ creatureEntries }) {
     window.localStorage.clear()
   }
 }
+
+const LinkStyled = styled.a`
+  text-decoration: none;
+`

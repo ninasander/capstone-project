@@ -69,6 +69,7 @@ export default function CreateMonster({ addCreatureEntry }) {
 }
 
 const FormStyled = styled.form`
+  color: white;
   h1 {
     font-size: 120%;
   }

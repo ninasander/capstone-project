@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 PlayerEntry.propTypes = {
   playerName: PropTypes.string.isRequired,
-  armorClass: PropTypes.string.isRequired,
+  armorClass: PropTypes.number.isRequired,
+  initiative: PropTypes.number.isRequired,
 }
 
 export default function PlayerEntry({ playerName, armorClass, initiative }) {
@@ -34,6 +35,7 @@ const PlayerEntryStyled = styled.div`
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
   h1 {
     grid-row: span 2;
+    align-self: center;
   }
   h2 {
     margin: 0;
