@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import PageButton from '../Buttons/PageButton'
 
 export default function CreatePlayer({ addCreatureEntry }) {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, errors } = useForm()
   const onSubmit = (playerEntry, event) => {
     event.target.reset()
     addCreatureEntry(playerEntry)
@@ -20,8 +20,18 @@ export default function CreatePlayer({ addCreatureEntry }) {
             type="text"
             placeholder="Ser Hero Fancypants"
             name="playerName"
-            ref={register({ required: true, min: 1, maxLength: 60 })}
+            ref={register({
+              required: true,
+              min: 1,
+              maxLength: 60,
+              pattern: /.*\S.*/,
+            })}
           />
+          {errors.playerName && (
+            <ErrorInfoStyled>
+              Please enter a name (At least 1 character)
+            </ErrorInfoStyled>
+          )}
         </section>
         <section>
           <label>AC:</label>
@@ -36,6 +46,11 @@ export default function CreatePlayer({ addCreatureEntry }) {
               pattern: /^[0-9]+$/i,
             })}
           />
+          {errors.armorClass && (
+            <ErrorInfoStyled>
+              Please enter a positive number (Max. 2 digits)
+            </ErrorInfoStyled>
+          )}
         </section>
         <label>Initiative:</label>
         <input
@@ -49,6 +64,11 @@ export default function CreatePlayer({ addCreatureEntry }) {
             pattern: /^[0-9]+$/i,
           })}
         />
+        {errors.initiative && (
+          <ErrorInfoStyled>
+            Please enter a positive number (Max. 2 digits)
+          </ErrorInfoStyled>
+        )}
         <PageButton type="submit" buttonText="Add Player" />
       </FormContainerStyled>
     </FormStyled>
@@ -93,4 +113,7 @@ const FormContainerStyled = styled.div`
   padding: 20px;
   background: hsla(208, 40%, 28%, 0.5);
   border-radius: 5px;
+`
+const ErrorInfoStyled = styled.p`
+  font-size: 75%;
 `

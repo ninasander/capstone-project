@@ -18,14 +18,14 @@ export default function EncounterPage({ creatureEntries }) {
             armorClass={creatureEntry.armorClass}
             HP={creatureEntry.HP}
             initiative={creatureEntry.initiative}
-            key={creatureEntry.id}
+            key={creatureEntry._id}
           />
         ) : (
           <PlayerEntry
             playerName={creatureEntry.playerName}
             armorClass={creatureEntry.armorClass}
             initiative={creatureEntry.initiative}
-            key={creatureEntry.id}
+            key={creatureEntry._id}
           />
         )
       )}

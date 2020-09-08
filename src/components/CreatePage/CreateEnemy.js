@@ -4,7 +4,7 @@ import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
 
 export default function CreateMonster({ addCreatureEntry }) {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, errors } = useForm()
   const onSubmit = (enemyEntry, event) => {
     event.target.reset()
     addCreatureEntry(enemyEntry)
@@ -20,8 +20,18 @@ export default function CreateMonster({ addCreatureEntry }) {
             type="text"
             placeholder="Big Bad Evil Guy"
             name="enemyName"
-            ref={register({ required: true, min: 1, maxLength: 60 })}
+            ref={register({
+              required: true,
+              min: 1,
+              maxLength: 60,
+              pattern: /.*\S.*/,
+            })}
           />
+          {errors.enemyName && (
+            <ErrorInfoStyled>
+              Please enter a name (At least 1 character)
+            </ErrorInfoStyled>
+          )}
         </section>
         <section>
           <label htmlFor="HP">HP:</label>
@@ -32,10 +42,15 @@ export default function CreateMonster({ addCreatureEntry }) {
             ref={register({
               required: true,
               min: 1,
-              maxLength: 100,
+              maxLength: 3,
               pattern: /^[0-9]+$/i,
             })}
           />
+          {errors.HP && (
+            <ErrorInfoStyled>
+              Please enter a positive number (Max. 3 digits)
+            </ErrorInfoStyled>
+          )}
           <label htmlFor="armorClass">AC:</label>
           <input
             type="number"
@@ -48,6 +63,11 @@ export default function CreateMonster({ addCreatureEntry }) {
               pattern: /^[0-9]+$/i,
             })}
           />
+          {errors.armorClass && (
+            <ErrorInfoStyled>
+              Please enter a positive number (Max. 2 digits)
+            </ErrorInfoStyled>
+          )}
         </section>
         <label htmlFor="initiative">Initiative:</label>
         <input
@@ -61,7 +81,11 @@ export default function CreateMonster({ addCreatureEntry }) {
             pattern: /^[0-9]+$/i,
           })}
         />
-
+        {errors.initiative && (
+          <ErrorInfoStyled>
+            Please enter a positive number (Max. 2 digits)
+          </ErrorInfoStyled>
+        )}
         <PageButton type="submit" buttonText="Add Enemy" />
       </FormContainerStyled>
     </FormStyled>
@@ -111,4 +135,7 @@ const FormContainerStyled = styled.div`
   padding: 20px;
   background: hsla(208, 40%, 28%, 0.5);
   border-radius: 5px;
+`
+const ErrorInfoStyled = styled.p`
+  font-size: 75%;
 `
