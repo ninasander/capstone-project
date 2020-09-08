@@ -1,5 +1,5 @@
 import React from 'react'
-import CalculatorButton from '../EncounterPage/CalculatorButton'
+import CalculatorButton from '../components/EncounterPage/CalculatorButton'
 
 export default {
   title: 'Calculator Button',

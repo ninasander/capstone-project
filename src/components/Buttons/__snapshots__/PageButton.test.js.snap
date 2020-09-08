@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageButton renders Add Enemy button correctly 1`] = `
+.c0 {
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+  font-size: 100%;
+  display: block;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+<button
+  className="c0"
+>
+  Add Enemy
+</button>
+`;
+
+exports[`PageButton renders Add Player button correctly 1`] = `
+.c0 {
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+  font-size: 100%;
+  display: block;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+<button
+  className="c0"
+>
+  Add Player
+</button>
+`;
+
+exports[`PageButton renders End Encounter button correctly 1`] = `
+.c0 {
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+  font-size: 100%;
+  display: block;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+<button
+  className="c0"
+>
+  End Encounter
+</button>
+`;
+
+exports[`PageButton renders Start Encounter button correctly 1`] = `
+.c0 {
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+  font-size: 100%;
+  display: block;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+<button
+  className="c0"
+>
+  Start Encounter
+</button>
+`;

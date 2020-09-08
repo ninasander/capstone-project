@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CalculatorButton from './CalculatorButton'
 import styled from 'styled-components'
 
-export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
+export default function HPCalculator({ setCurrentHP, currentHP, HP }) {
   const [hpInputValue, setHpInputValue] = useState('')
   return (
     <CounterStyled>
@@ -30,7 +30,7 @@ export default function HPCalculator({ setCurrentHP, currentHP, maxHP }) {
 
   function addToHP() {
     const calculatedHP = currentHP + Number(hpInputValue)
-    setCurrentHP(calculatedHP > maxHP ? maxHP : calculatedHP)
+    setCurrentHP(calculatedHP > HP ? HP : calculatedHP)
     setHpInputValue('')
   }
   function subtractFromHP() {

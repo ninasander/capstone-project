@@ -4,27 +4,24 @@ import PropTypes from 'prop-types'
 import HPCalculator from './HPCalculator'
 
 EnemyEntry.propTypes = {
-  enemy: PropTypes.string.isRequired,
-  ac: PropTypes.number.isRequired,
+  enemyName: PropTypes.string.isRequired,
+  armorClass: PropTypes.number.isRequired,
   HP: PropTypes.number.isRequired,
-  maxHP: PropTypes.number.isRequired,
+  initiative: PropTypes.number.isRequired,
 }
 
-export default function EnemyEntry({ enemy, ac, HP, maxHP }) {
+export default function EnemyEntry({ enemyName, armorClass, HP, initiative }) {
   const [currentHP, setCurrentHP] = useState(HP)
 
   return (
     <EnemyEntryStyled>
-      <h2>{enemy}</h2>
+      <h1>{initiative}</h1>
+      <h2>{enemyName}</h2>
       <p>
-        HP: {currentHP}/{maxHP}
+        HP: {currentHP}/{HP}
       </p>
-      <HPCalculator
-        currentHP={currentHP}
-        maxHP={maxHP}
-        setCurrentHP={setCurrentHP}
-      />
-      <p>AC: {ac}</p>
+      <HPCalculator currentHP={currentHP} HP={HP} setCurrentHP={setCurrentHP} />
+      <p>AC: {armorClass}</p>
     </EnemyEntryStyled>
   )
 }
@@ -35,7 +32,7 @@ const EnemyEntryStyled = styled.div`
   display: grid;
   grid-gap: 20px;
   justify-content: space-between;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr 2fr;
   background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
@@ -47,11 +44,15 @@ const EnemyEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
-
+  h1 {
+    grid-row: span 3;
+    align-self: center;
+  }
   h2 {
-    grid-column: span 3;
+    grid-column: span 2;
     margin: 0;
     font-size: 140%;
+    word-break: break-word;
   }
   p {
     margin: 0;

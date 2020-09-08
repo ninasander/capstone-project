@@ -1,5 +1,5 @@
 import React from 'react'
-import HPCalculator from '../EncounterPage/HPCalculator'
+import HPCalculator from '../components/EncounterPage/HPCalculator'
 
 export default {
   title: 'HP Calculator',

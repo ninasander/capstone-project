@@ -3,15 +3,17 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 PlayerEntry.propTypes = {
-  player: PropTypes.string.isRequired,
-  ac: PropTypes.number.isRequired,
+  playerName: PropTypes.string.isRequired,
+  armorClass: PropTypes.number.isRequired,
+  initiative: PropTypes.number.isRequired,
 }
 
-export default function PlayerEntry({ player, ac }) {
+export default function PlayerEntry({ playerName, armorClass, initiative }) {
   return (
     <PlayerEntryStyled>
-      <h1>{player}</h1>
-      <p>AC: {ac}</p>
+      <h1>{initiative}</h1>
+      <h2>{playerName}</h2>
+      <p>AC: {armorClass}</p>
     </PlayerEntryStyled>
   )
 }
@@ -20,7 +22,7 @@ const PlayerEntryStyled = styled.div`
   margin: 20px;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
   background: linear-gradient(
       180deg,
       hsla(208, 40%, 28%, 1) 0%,
@@ -32,6 +34,10 @@ const PlayerEntryStyled = styled.div`
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
   h1 {
+    grid-row: span 2;
+    align-self: center;
+  }
+  h2 {
     margin: 0;
     font-size: 140%;
   }
