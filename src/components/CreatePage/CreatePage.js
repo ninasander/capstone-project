@@ -38,7 +38,7 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
 
 const FormsStyled = styled.div`
   margin: 20px;
-
+  color: white;
   a {
     text-decoration: none;
   }

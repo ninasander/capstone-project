@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 PageButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   buttonText: PropTypes.string.isRequired,
 }
 
