@@ -17,7 +17,6 @@ function App() {
             creatureEntries={creatureEntries}
             addCreatureEntry={addCreatureEntry}
           />
-          {/* <JournalPage entries={entries} addEntry={addEntry} /> */}
         </Route>
       </Switch>
     </Router>

@@ -1,5 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+PageButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired,
+}
 
 export default function PageButton({ buttonText, onClick }) {
   return <ButtonStyled onClick={onClick}>{buttonText}</ButtonStyled>

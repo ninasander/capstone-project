@@ -11,21 +11,21 @@ export default function EncounterPage({ creatureEntries }) {
 
   return (
     <>
-      {creaturesByInitiative.map((creatureEntry, index) =>
+      {creaturesByInitiative.map((creatureEntry) =>
         creatureEntry.enemyName ? (
           <EnemyEntry
             enemyName={creatureEntry.enemyName}
             armorClass={creatureEntry.armorClass}
             HP={creatureEntry.HP}
             initiative={creatureEntry.initiative}
-            key={index}
+            key={creatureEntry.id}
           />
         ) : (
           <PlayerEntry
             playerName={creatureEntry.playerName}
             armorClass={creatureEntry.armorClass}
             initiative={creatureEntry.initiative}
-            key={index}
+            key={creatureEntry.id}
           />
         )
       )}
