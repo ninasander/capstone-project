@@ -2,34 +2,22 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
-EnemyPreview.propTypes = {
-  enemyName: PropTypes.string.isRequired,
+PlayerEntry.propTypes = {
+  playerName: PropTypes.string.isRequired,
   armorClass: PropTypes.number.isRequired,
-  HP: PropTypes.number.isRequired,
   initiative: PropTypes.number.isRequired,
 }
 
-export default function EnemyPreview({
-  enemyName,
-  armorClass,
-  HP,
-  initiative,
-  bind,
-  style,
-  onClick,
-}) {
+export default function PlayerEntry({ playerName, armorClass, initiative }) {
   return (
-    <div {...bind} style={style}>
-      <DeleteButtonStyled onClick={onClick}>✕</DeleteButtonStyled>
-      <EnemyEntryStyled>
+    <div>
+      <DeleteButtonStyled>✕</DeleteButtonStyled>
+      <PlayerEntryStyled>
         <h1>{initiative}</h1>
-        <h2>{enemyName}</h2>
-        <p>
-          HP: {HP}/{HP}
-        </p>
+        <h2>{playerName}</h2>
         <p>AC: {armorClass}</p>
         <EditButtonStyled>Edit</EditButtonStyled>
-      </EnemyEntryStyled>
+      </PlayerEntryStyled>
     </div>
   )
 }
@@ -58,15 +46,13 @@ const EditButtonStyled = styled.button`
   justify-self: center;
 `
 
-const EnemyEntryStyled = styled.div`
+const PlayerEntryStyled = styled.div`
   font-size: 80%;
   margin: 0 20px;
   padding: 20px;
   display: grid;
-  grid-gap: 5px 20px;
-  justify-content: space-between;
-  grid-template-columns: 1fr 2fr 2fr;
-  background: hsla(208, 40%, 28%, 1);
+
+  grid-template-columns: 1fr 3fr;
   background: linear-gradient(
       180deg,
       hsla(208, 40%, 28%, 1) 0%,
@@ -78,16 +64,16 @@ const EnemyEntryStyled = styled.div`
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
   h1 {
-    grid-row: span 2;
     align-self: center;
+    margin: 10px 0;
   }
   h2 {
-    grid-column: span 2;
     margin: 0;
     font-size: 140%;
-    word-break: break-word;
+    align-self: center;
   }
   p {
-    margin: 0;
+    align-self: center;
+    margin: 0 20px;
   }
 `
