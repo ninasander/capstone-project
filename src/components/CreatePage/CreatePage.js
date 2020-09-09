@@ -3,6 +3,7 @@ import CreateMonster from './CreateEnemy'
 import CreatePlayer from './CreatePlayer'
 import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
+import EnemyPreview from './EnemyPreview'
 
 export default function CreatePage({ creatureEntries, addCreatureEntry }) {
   const hasEnemy =
@@ -19,6 +20,18 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
   return (
     <FormsStyled>
       <CreateMonster addCreatureEntry={addCreatureEntry} />
+      <PageButton type="button" buttonText="Show Created Enemies ▼" />
+      {creatureEntries.map((creatureEntry) =>
+        creatureEntry.enemyName ? (
+          <EnemyPreview
+            enemyName={creatureEntry.enemyName}
+            armorClass={creatureEntry.armorClass}
+            HP={creatureEntry.HP}
+            initiative={creatureEntry.initiative}
+            key={creatureEntry._id}
+          />
+        ) : null
+      )}
       <CreatePlayer addCreatureEntry={addCreatureEntry} />
       {hasEnemy === true && hasPlayer === true ? (
         <a href="/encounter">
