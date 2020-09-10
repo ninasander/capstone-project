@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-EnemyPreview.propTypes = {
-  enemyName: PropTypes.string.isRequired,
-  armorClass: PropTypes.number.isRequired,
-  HP: PropTypes.number.isRequired,
-  initiative: PropTypes.number.isRequired,
-}
+// EnemyPreview.propTypes = {
+//   enemyName: PropTypes.string.isRequired,
+//   armorClass: PropTypes.number.isRequired,
+//   HP: PropTypes.number.isRequired,
+//   initiative: PropTypes.number.isRequired,
+// }
 
 export default function EnemyPreview({
   enemyName,

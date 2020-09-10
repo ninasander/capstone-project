@@ -16,3 +16,11 @@ export function postCreatureEntry(creatureEntry) {
     .then((creatureEntries) => saveLocally('CreatureEntries', creatureEntries))
     .then(() => newCreatureEntry)
 }
+
+// export function removeCreatureEntry() {
+//   return getCreatureEntries()
+//     .then((creatureEntries) =>
+//       removeLocally('CreatureEntries', creatureEntries)
+//     )
+//     .then((creatureEntries) => saveLocally('CreatureEntries', creatureEntries))
+// }

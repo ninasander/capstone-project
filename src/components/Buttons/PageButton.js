@@ -15,6 +15,7 @@ const ButtonStyled = styled.button`
   margin: 20px auto 0 auto;
   padding: 10px 20px;
   font-size: 100%;
+  font-family: 'Gentium Book Basic', serif;
   display: block;
   background: linear-gradient(
       180deg,

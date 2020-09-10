@@ -24,3 +24,15 @@ export function saveLocally(key, value) {
     }
   })
 }
+
+// export function removeLocally(key, value) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       const serializedData = JSON.stringify(value)
+//       localStorage.removeItem(key, serializedData)
+//       resolve()
+//     } catch (error) {
+//       reject(error)
+//     }
+//   })
+// }

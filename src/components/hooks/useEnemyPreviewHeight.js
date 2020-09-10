@@ -5,7 +5,7 @@ import { useLayoutEffect, useState, useRef } from 'react'
  *    const {height, bind} = useHeight()
  *    <div {...bind} style={{height: isActive ? height : 0}}>Measured element</div>
  */
-export default function useHeight(deps) {
+export default function useEnemyPreviewHeight(deps) {
   const [calculatedHeight, setCalculatedHeight] = useState(0)
   const ref = useRef()
 
@@ -24,5 +24,5 @@ export default function useHeight(deps) {
     toggleElement.style.height = originals.height
     setCalculatedHeight(height)
   }, [deps, ref])
-  return { height: calculatedHeight, bind: { ref } }
+  return { heightEnemy: calculatedHeight, bindEnemy: { ref } }
 }

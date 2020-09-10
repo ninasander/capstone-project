@@ -5,18 +5,20 @@ import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
 import EnemyPreview from './EnemyPreview'
 import PlayerPreview from './PlayerPreview'
-import useHeight from '../hooks/useHeight'
+import useEnemyPreviewHeight from '../hooks/useEnemyPreviewHeight'
+import usePlayerPreviewHeight from '../hooks/usePlayerPreviewHeight'
 import { useSpring, animated } from 'react-spring'
 
-export default function CreatePage({
-  creatureEntries,
-  addCreatureEntry,
-  onClick,
-}) {
-  const [isPreviewVisible, setIsPreviewVisible] = useState(false)
-  const { height, bind } = useHeight([EnemyPreview])
-  const previewStyle = {
-    ...useSpring({ height: isPreviewVisible ? height : 0 }),
+export default function CreatePage({ creatureEntries, addCreatureEntry }) {
+  const [isEnemyPreviewVisible, setIsEnemyPreviewVisible] = useState(false)
+  const [isPlayerPreviewVisible, setIsPlayerPreviewVisible] = useState(false)
+  const { heightEnemy, bindEnemy } = useEnemyPreviewHeight([])
+  const { heightPlayer, bindPlayer } = usePlayerPreviewHeight([])
+  const enemyPreviewStyle = {
+    ...useSpring({ height: isEnemyPreviewVisible ? heightEnemy : 0 }),
+  }
+  const playerPreviewStyle = {
+    ...useSpring({ height: isPlayerPreviewVisible ? heightPlayer : 0 }),
   }
 
   const hasEnemy =
@@ -36,11 +38,15 @@ export default function CreatePage({
       {hasEnemy ? (
         <PageButton
           type="button"
-          buttonText="Show Created Enemies ▼"
-          onClick={togglePreview}
+          buttonText={
+            isEnemyPreviewVisible
+              ? 'Hide Created Enemies ▲'
+              : 'Show Created Enemies ▼'
+          }
+          onClick={toggleEnemyPreview}
         />
       ) : null}
-      <PreviewContainerStyled bind={bind} style={previewStyle}>
+      <PreviewContainerStyled {...bindEnemy} style={enemyPreviewStyle}>
         {creatureEntries.map((creatureEntry) =>
           creatureEntry.enemyName ? (
             <EnemyPreview
@@ -58,20 +64,26 @@ export default function CreatePage({
       {hasPlayer ? (
         <PageButton
           type="button"
-          buttonText="Show Created Players ▼"
-          onClick={togglePreview}
+          buttonText={
+            isPlayerPreviewVisible
+              ? 'Hide Created Players ▲'
+              : 'Show Created Players ▼'
+          }
+          onClick={togglePlayerPreview}
         />
       ) : null}
-      {creatureEntries.map((creatureEntry) =>
-        creatureEntry.playerName ? (
-          <PlayerPreview
-            playerName={creatureEntry.playerName}
-            armorClass={creatureEntry.armorClass}
-            initiative={creatureEntry.initiative}
-            key={creatureEntry._id}
-          />
-        ) : null
-      )}
+      <PreviewContainerStyled {...bindPlayer} style={playerPreviewStyle}>
+        {creatureEntries.map((creatureEntry) =>
+          creatureEntry.playerName ? (
+            <PlayerPreview
+              playerName={creatureEntry.playerName}
+              armorClass={creatureEntry.armorClass}
+              initiative={creatureEntry.initiative}
+              key={creatureEntry._id}
+            />
+          ) : null
+        )}
+      </PreviewContainerStyled>
       {hasEnemy === true && hasPlayer === true ? (
         <a href="/encounter">
           <PageButton type="submit" buttonText="Start Encounter" />
@@ -87,21 +99,42 @@ export default function CreatePage({
     </FormsStyled>
   )
 
-  function togglePreview() {
-    console.log('toggle clicked')
-    setIsPreviewVisible(!isPreviewVisible)
+  function toggleEnemyPreview() {
+    setIsEnemyPreviewVisible(!isEnemyPreviewVisible)
+  }
+  function togglePlayerPreview() {
+    setIsPlayerPreviewVisible(!isPlayerPreviewVisible)
   }
 
   function deleteEntry(creatureEntry) {
     console.log('clicked')
     const index = creatureEntries.indexOf(creatureEntry)
-    creatureEntries.splice(index, 1)
+    console.log(index)
+    localStorage.removeItem(index)
   }
 }
 
-const PreviewContainerStyled = styled.div`
+const PreviewContainerStyled = styled(animated.div)`
   display: block;
   z-index: 200;
+  overflow: hidden;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &::before {
+    height: 0;
+    background: linear-gradient(#0002, #0000);
+  }
+  &::after {
+    height: auto;
+    bottom: 0;
+    background: linear-gradient(#0000, #0001);
+  }
 `
 
 const FormsStyled = styled.div`

@@ -17,5 +17,13 @@ export default function useCreatureEntries() {
       .catch(setError)
   }
 
+  // const deleteCreatureEntry = (creatureEntry) => {
+  //   removeCreatureEntry(creatureEntry)
+  //     .then((newCreatureEntry) =>
+  //       setCreatureEntries([newCreatureEntry, ...creatureEntries])
+  //     )
+  //     .catch(setError)
+  // }
+
   return { creatureEntries, addCreatureEntry, error }
 }

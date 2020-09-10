@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import HPCalculator from './HPCalculator'
 
-EnemyEntry.propTypes = {
-  enemyName: PropTypes.string.isRequired,
-  armorClass: PropTypes.number.isRequired,
-  HP: PropTypes.number.isRequired,
-  initiative: PropTypes.number.isRequired,
-}
+// EnemyEntry.propTypes = {
+//   enemyName: PropTypes.string.isRequired,
+//   armorClass: PropTypes.number.isRequired,
+//   HP: PropTypes.number.isRequired,
+//   initiative: PropTypes.number.isRequired,
+// }
 
 export default function EnemyEntry({ enemyName, armorClass, HP, initiative }) {
   const [currentHP, setCurrentHP] = useState(HP)
