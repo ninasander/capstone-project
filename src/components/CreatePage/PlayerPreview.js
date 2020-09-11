@@ -8,10 +8,16 @@ import styled from 'styled-components/macro'
 //   initiative: PropTypes.number.isRequired,
 // }
 
-export default function PlayerEntry({ playerName, armorClass, initiative }) {
+export default function PlayerEntry({
+  playerName,
+  armorClass,
+  initiative,
+  onDelete,
+  id,
+}) {
   return (
     <div>
-      <DeleteButtonStyled>✕</DeleteButtonStyled>
+      <DeleteButtonStyled onClick={() => onDelete(id)}>✕</DeleteButtonStyled>
       <PlayerEntryStyled>
         <h1>{initiative}</h1>
         <h2>{playerName}</h2>

@@ -1,4 +1,4 @@
-import { loadLocally, saveLocally } from './localStorage'
+import { loadLocally, saveLocally } from '../lib/localStorage'
 import { v4 as uuid } from 'uuid'
 
 export function getCreatureEntries() {
@@ -17,10 +17,6 @@ export function postCreatureEntry(creatureEntry) {
     .then(() => newCreatureEntry)
 }
 
-// export function removeCreatureEntry() {
-//   return getCreatureEntries()
-//     .then((creatureEntries) =>
-//       removeLocally('CreatureEntries', creatureEntries)
-//     )
-//     .then((creatureEntries) => saveLocally('CreatureEntries', creatureEntries))
+// export function removeCreatureEntry(creatureEntry) {
+//   removeLocally('_id', creatureEntry._id)
 // }

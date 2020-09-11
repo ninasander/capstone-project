@@ -9,7 +9,11 @@ import useEnemyPreviewHeight from '../hooks/useEnemyPreviewHeight'
 import usePlayerPreviewHeight from '../hooks/usePlayerPreviewHeight'
 import { useSpring, animated } from 'react-spring'
 
-export default function CreatePage({ creatureEntries, addCreatureEntry }) {
+export default function CreatePage({
+  creatureEntries,
+  addCreatureEntry,
+  deleteCreatureEntry,
+}) {
   const [isEnemyPreviewVisible, setIsEnemyPreviewVisible] = useState(false)
   const [isPlayerPreviewVisible, setIsPlayerPreviewVisible] = useState(false)
   const { heightEnemy, bindEnemy } = useEnemyPreviewHeight([])
@@ -32,6 +36,10 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
       ? false
       : true
 
+  const onDelete = (enemyEntry) => {
+    deleteCreatureEntry(enemyEntry)
+  }
+
   return (
     <FormsStyled>
       <CreateMonster addCreatureEntry={addCreatureEntry} />
@@ -52,10 +60,12 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
             <EnemyPreview
               enemyName={creatureEntry.enemyName}
               armorClass={creatureEntry.armorClass}
-              HP={creatureEntry.HP}
               initiative={creatureEntry.initiative}
+              HP={creatureEntry.HP}
+              id={creatureEntry._id}
               key={creatureEntry._id}
-              onClick={() => deleteEntry(creatureEntry)}
+              onDelete={onDelete}
+              // onEdit={}
             />
           ) : null
         )}
@@ -79,7 +89,9 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
               playerName={creatureEntry.playerName}
               armorClass={creatureEntry.armorClass}
               initiative={creatureEntry.initiative}
+              id={creatureEntry._id}
               key={creatureEntry._id}
+              onDelete={onDelete}
             />
           ) : null
         )}
@@ -106,12 +118,13 @@ export default function CreatePage({ creatureEntries, addCreatureEntry }) {
     setIsPlayerPreviewVisible(!isPlayerPreviewVisible)
   }
 
-  function deleteEntry(creatureEntry) {
-    console.log('clicked')
-    const index = creatureEntries.indexOf(creatureEntry)
-    console.log(index)
-    localStorage.removeItem(index)
-  }
+  // function deleteEntry(creatureEntry) {
+  //   console.log('clicked')
+  //   const index = creatureEntries.indexOf(creatureEntry)
+  //   console.log(index)
+  //   console.log(creatureEntry._id)
+  //   localStorage.removeItem('creatureEntry', creatureEntry._id)
+  // }
 }
 
 const PreviewContainerStyled = styled(animated.div)`

@@ -14,13 +14,13 @@ export default function EnemyPreview({
   armorClass,
   HP,
   initiative,
-  bind,
-  style,
-  onClick,
+  id,
+  onDelete,
+  onEdit,
 }) {
   return (
-    <div {...bind} style={style}>
-      <DeleteButtonStyled onClick={onClick}>✕</DeleteButtonStyled>
+    <>
+      <DeleteButtonStyled onClick={() => onDelete(id)}>✕</DeleteButtonStyled>
       <EnemyEntryStyled>
         <h1>{initiative}</h1>
         <h2>{enemyName}</h2>
@@ -28,9 +28,9 @@ export default function EnemyPreview({
           HP: {HP}/{HP}
         </p>
         <p>AC: {armorClass}</p>
-        <EditButtonStyled>Edit</EditButtonStyled>
+        <EditButtonStyled onClick={onEdit}>Edit</EditButtonStyled>
       </EnemyEntryStyled>
-    </div>
+    </>
   )
 }
 
