@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
 
-export default function CreateMonster({ addCreatureEntry }) {
+export default function CreateEnemy({ addCreatureEntry, buttonText }) {
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = (enemyEntry, event) => {
     event.target.reset()
@@ -86,7 +86,8 @@ export default function CreateMonster({ addCreatureEntry }) {
             Please enter a positive number (Max. 2 digits)
           </ErrorInfoStyled>
         )}
-        <PageButton type="submit" buttonText="Add Enemy" />
+        <PageButton type="submit" buttonText={buttonText} />
+        {/* buttonText auf createpage auslagern */}
       </FormContainerStyled>
     </FormStyled>
   )

@@ -14,13 +14,15 @@ export default function EnemyPreview({
   armorClass,
   HP,
   initiative,
-  id,
-  onDelete,
+  creatureEntry,
+  handleDelete,
   onEdit,
 }) {
   return (
     <>
-      <DeleteButtonStyled onClick={() => onDelete(id)}>✕</DeleteButtonStyled>
+      <DeleteButtonStyled onClick={handleDeleteClick} id={creatureEntry._id}>
+        ✕
+      </DeleteButtonStyled>
       <EnemyEntryStyled>
         <h1>{initiative}</h1>
         <h2>{enemyName}</h2>
@@ -32,6 +34,10 @@ export default function EnemyPreview({
       </EnemyEntryStyled>
     </>
   )
+
+  function handleDeleteClick() {
+    handleDelete(creatureEntry._id)
+  }
 }
 
 const DeleteButtonStyled = styled.button`

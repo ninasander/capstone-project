@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CreateMonster from './CreateEnemy'
+import CreateEnemy from './CreateEnemy'
 import CreatePlayer from './CreatePlayer'
 import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
@@ -13,9 +13,11 @@ export default function CreatePage({
   creatureEntries,
   addCreatureEntry,
   deleteCreatureEntry,
+  editCreatureEntry,
 }) {
   const [isEnemyPreviewVisible, setIsEnemyPreviewVisible] = useState(false)
   const [isPlayerPreviewVisible, setIsPlayerPreviewVisible] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
   const { heightEnemy, bindEnemy } = useEnemyPreviewHeight([])
   const { heightPlayer, bindPlayer } = usePlayerPreviewHeight([])
   const enemyPreviewStyle = {
@@ -36,13 +38,16 @@ export default function CreatePage({
       ? false
       : true
 
-  const onDelete = (enemyEntry) => {
-    deleteCreatureEntry(enemyEntry)
+  const onEdit = (enemyEntry) => {
+    editCreatureEntry(enemyEntry)
   }
 
   return (
     <FormsStyled>
-      <CreateMonster addCreatureEntry={addCreatureEntry} />
+      <CreateEnemy
+        addCreatureEntry={addCreatureEntry}
+        buttonText={isEditing ? 'Save Enemy' : 'Add Enemy'}
+      />
       {hasEnemy ? (
         <PageButton
           type="button"
@@ -62,10 +67,10 @@ export default function CreatePage({
               armorClass={creatureEntry.armorClass}
               initiative={creatureEntry.initiative}
               HP={creatureEntry.HP}
-              id={creatureEntry._id}
+              creatureEntry={creatureEntry}
               key={creatureEntry._id}
-              onDelete={onDelete}
-              // onEdit={}
+              handleDelete={onDelete}
+              onEdit={handleEdit}
             />
           ) : null
         )}
@@ -111,6 +116,14 @@ export default function CreatePage({
     </FormsStyled>
   )
 
+  function onDelete(id) {
+    const index = creatureEntries.findIndex(
+      (creatureEntry) => creatureEntry._id === id
+    )
+    const entryToDelete = creatureEntries[index]
+    console.log(id, creatureEntries)
+    deleteCreatureEntry(entryToDelete)
+  }
   function toggleEnemyPreview() {
     setIsEnemyPreviewVisible(!isEnemyPreviewVisible)
   }
@@ -118,13 +131,9 @@ export default function CreatePage({
     setIsPlayerPreviewVisible(!isPlayerPreviewVisible)
   }
 
-  // function deleteEntry(creatureEntry) {
-  //   console.log('clicked')
-  //   const index = creatureEntries.indexOf(creatureEntry)
-  //   console.log(index)
-  //   console.log(creatureEntry._id)
-  //   localStorage.removeItem('creatureEntry', creatureEntry._id)
-  // }
+  function handleEdit() {
+    setIsEditing(!isEditing)
+  }
 }
 
 const PreviewContainerStyled = styled(animated.div)`

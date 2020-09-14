@@ -17,6 +17,17 @@ export function postCreatureEntry(creatureEntry) {
     .then(() => newCreatureEntry)
 }
 
-// export function removeCreatureEntry(creatureEntry) {
-//   removeLocally('_id', creatureEntry._id)
-// }
+export function removeCreatureEntry(creatureToDelete) {
+  return getCreatureEntries()
+    .then((creatureEntries) => {
+      const index = creatureEntries.findIndex(
+        (creatureEntry) => creatureEntry._id === creatureToDelete._id
+      )
+      return [
+        ...creatureEntries.slice(0, index),
+        ...creatureEntries.slice(index + 1),
+      ]
+    })
+    .then((creatureEntries) => saveLocally('CreatureEntries', creatureEntries))
+    .then(() => creatureToDelete)
+}

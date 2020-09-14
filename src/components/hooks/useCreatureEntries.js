@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
-import { getCreatureEntries, postCreatureEntry } from '../services/services'
+import {
+  getCreatureEntries,
+  postCreatureEntry,
+  removeCreatureEntry,
+} from '../services/services'
 
 export default function useCreatureEntries() {
   const [creatureEntries, setCreatureEntries] = useState([])
@@ -17,14 +21,16 @@ export default function useCreatureEntries() {
       .catch(setError)
   }
 
-  const deleteCreatureEntry = (id) => {
-    // removeCreatureEntry(id)
+  const deleteCreatureEntry = (entryToDelete) => {
+    removeCreatureEntry(entryToDelete)
     setCreatureEntries(
       creatureEntries.filter((creatureEntry) => {
-        return id !== creatureEntry._id
+        return entryToDelete._id !== creatureEntry._id
       })
     )
   }
+
+  // const editCreatureEntry
 
   return { creatureEntries, addCreatureEntry, deleteCreatureEntry, error }
 }
