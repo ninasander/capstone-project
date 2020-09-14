@@ -12,12 +12,14 @@ export default function PlayerEntry({
   playerName,
   armorClass,
   initiative,
-  onDelete,
-  id,
+  handleDelete,
+  creatureEntry,
 }) {
   return (
     <div>
-      <DeleteButtonStyled onClick={() => onDelete(id)}>✕</DeleteButtonStyled>
+      <DeleteButtonStyled onClick={handleDeleteClick} id={creatureEntry._id}>
+        ✕
+      </DeleteButtonStyled>
       <PlayerEntryStyled>
         <h1>{initiative}</h1>
         <h2>{playerName}</h2>
@@ -26,6 +28,9 @@ export default function PlayerEntry({
       </PlayerEntryStyled>
     </div>
   )
+  function handleDeleteClick() {
+    handleDelete(creatureEntry._id)
+  }
 }
 
 const DeleteButtonStyled = styled.button`

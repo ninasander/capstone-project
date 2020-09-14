@@ -94,9 +94,9 @@ export default function CreatePage({
               playerName={creatureEntry.playerName}
               armorClass={creatureEntry.armorClass}
               initiative={creatureEntry.initiative}
-              id={creatureEntry._id}
+              creatureEntry={creatureEntry}
               key={creatureEntry._id}
-              onDelete={onDelete}
+              handleDelete={onDelete}
             />
           ) : null
         )}
