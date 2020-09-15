@@ -9,6 +9,7 @@ function App() {
     creatureEntries,
     addCreatureEntry,
     deleteCreatureEntry,
+    editCreatureEntry,
   } = useCreatureEntries()
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
             creatureEntries={creatureEntries}
             addCreatureEntry={addCreatureEntry}
             deleteCreatureEntry={deleteCreatureEntry}
+            editCreatureEntry={editCreatureEntry}
           />
         </Route>
       </Switch>

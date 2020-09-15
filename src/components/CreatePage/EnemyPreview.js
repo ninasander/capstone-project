@@ -16,7 +16,7 @@ export default function EnemyPreview({
   initiative,
   creatureEntry,
   handleDelete,
-  onEdit,
+  handleEdit,
 }) {
   return (
     <>
@@ -30,13 +30,16 @@ export default function EnemyPreview({
           HP: {HP}/{HP}
         </p>
         <p>AC: {armorClass}</p>
-        <EditButtonStyled onClick={onEdit}>Edit</EditButtonStyled>
+        <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
       </EnemyEntryStyled>
     </>
   )
 
   function handleDeleteClick() {
     handleDelete(creatureEntry._id)
+  }
+  function handleEditClick() {
+    handleEdit(creatureEntry._id)
   }
 }
 

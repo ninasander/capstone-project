@@ -17,7 +17,8 @@ export default function CreatePage({
 }) {
   const [isEnemyPreviewVisible, setIsEnemyPreviewVisible] = useState(false)
   const [isPlayerPreviewVisible, setIsPlayerPreviewVisible] = useState(false)
-  const [isEditing, setIsEditing] = useState(false)
+  const [editCreature, setEditCreature] = useState(undefined)
+
   const { heightEnemy, bindEnemy } = useEnemyPreviewHeight([])
   const { heightPlayer, bindPlayer } = usePlayerPreviewHeight([])
   const enemyPreviewStyle = {
@@ -27,26 +28,26 @@ export default function CreatePage({
     ...useSpring({ height: isPlayerPreviewVisible ? heightPlayer : 0 }),
   }
 
-  const hasEnemy =
-    creatureEntries?.filter((creatureEntry) => creatureEntry.enemyName)
-      .length === 0
-      ? false
-      : true
-  const hasPlayer =
-    creatureEntries?.filter((creatureEntry) => creatureEntry.playerName)
-      .length === 0
-      ? false
-      : true
+  const hasEnemy = creatureEntries?.some(
+    (creatureEntry) => creatureEntry.enemyName
+  )
 
-  const onEdit = (enemyEntry) => {
-    editCreatureEntry(enemyEntry)
-  }
+  const hasPlayer = creatureEntries?.some(
+    (creatureEntry) => creatureEntry.playerName
+  )
 
   return (
     <FormsStyled>
       <CreateEnemy
+        editCreature={editCreature}
+        editCreatureEntry={editCreatureEntry}
         addCreatureEntry={addCreatureEntry}
-        buttonText={isEditing ? 'Save Enemy' : 'Add Enemy'}
+        buttonText={editCreature ? 'Save Enemy' : 'Add Enemy'}
+        headlineText={
+          editCreature
+            ? 'Edit your enemy creature:'
+            : 'Add your enemy creature:'
+        }
       />
       {hasEnemy ? (
         <PageButton
@@ -70,7 +71,7 @@ export default function CreatePage({
               creatureEntry={creatureEntry}
               key={creatureEntry._id}
               handleDelete={onDelete}
-              onEdit={handleEdit}
+              handleEdit={onEdit}
             />
           ) : null
         )}
@@ -121,18 +122,20 @@ export default function CreatePage({
       (creatureEntry) => creatureEntry._id === id
     )
     const entryToDelete = creatureEntries[index]
-    console.log(id, creatureEntries)
     deleteCreatureEntry(entryToDelete)
+  }
+  function onEdit(id) {
+    const creatureToEdit = creatureEntries.find(
+      (creatureEntry) => creatureEntry._id === id
+    )
+    setEditCreature(creatureToEdit)
+    editCreatureEntry(creatureToEdit)
   }
   function toggleEnemyPreview() {
     setIsEnemyPreviewVisible(!isEnemyPreviewVisible)
   }
   function togglePlayerPreview() {
     setIsPlayerPreviewVisible(!isPlayerPreviewVisible)
-  }
-
-  function handleEdit() {
-    setIsEditing(!isEditing)
   }
 }
 

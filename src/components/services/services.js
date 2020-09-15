@@ -31,3 +31,19 @@ export function removeCreatureEntry(creatureToDelete) {
     .then((creatureEntries) => saveLocally('CreatureEntries', creatureEntries))
     .then(() => creatureToDelete)
 }
+
+export function updateCreatureEntry(creatureToEdit) {
+  return getCreatureEntries()
+    .then((creatureEntries) => {
+      const index = creatureEntries.findIndex(
+        (creatureEntry) => creatureEntry._id === creatureToEdit._id
+      )
+      return [
+        ...creatureEntries.slice(0, index),
+        creatureToEdit,
+        ...creatureEntries.slice(index + 1),
+      ]
+    })
+    .then((creatureEntries) => saveLocally('CreatureEntries', creatureEntries))
+    .then(() => creatureToEdit)
+}

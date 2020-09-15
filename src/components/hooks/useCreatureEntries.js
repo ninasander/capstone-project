@@ -1,28 +1,22 @@
 import { useEffect, useState } from 'react'
-import {
-  getCreatureEntries,
-  postCreatureEntry,
-  removeCreatureEntry,
-} from '../services/services'
+import { loadLocally, saveLocally } from '../lib/localStorage'
+import { v4 as uuid } from 'uuid'
 
 export default function useCreatureEntries() {
-  const [creatureEntries, setCreatureEntries] = useState([])
-  const [error, setError] = useState()
+  const [creatureEntries, setCreatureEntries] = useState(
+    loadLocally('creatureEntries') ?? []
+  )
 
   useEffect(() => {
-    getCreatureEntries().then(setCreatureEntries)
-  }, [])
+    saveLocally('creatureEntries', creatureEntries)
+  }, [creatureEntries])
 
   const addCreatureEntry = (creatureEntry) => {
-    postCreatureEntry(creatureEntry)
-      .then((newCreatureEntry) =>
-        setCreatureEntries([newCreatureEntry, ...creatureEntries])
-      )
-      .catch(setError)
+    const newCreatureEntry = { ...creatureEntry, _id: uuid() }
+    setCreatureEntries([newCreatureEntry, ...creatureEntries])
   }
 
   const deleteCreatureEntry = (entryToDelete) => {
-    removeCreatureEntry(entryToDelete)
     setCreatureEntries(
       creatureEntries.filter((creatureEntry) => {
         return entryToDelete._id !== creatureEntry._id
@@ -30,7 +24,21 @@ export default function useCreatureEntries() {
     )
   }
 
-  // const editCreatureEntry
+  const editCreatureEntry = (creatureToEdit) => {
+    const index = creatureEntries.findIndex(
+      (creatureEntry) => creatureEntry._id === creatureToEdit._id
+    )
+    setCreatureEntries([
+      ...creatureEntries.slice(0, index),
+      creatureToEdit,
+      ...creatureEntries.slice(index + 1),
+    ])
+  }
 
-  return { creatureEntries, addCreatureEntry, deleteCreatureEntry, error }
+  return {
+    creatureEntries,
+    addCreatureEntry,
+    deleteCreatureEntry,
+    editCreatureEntry,
+  }
 }
