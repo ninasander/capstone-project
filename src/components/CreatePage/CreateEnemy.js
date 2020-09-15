@@ -32,7 +32,11 @@ export default function CreateEnemy({
 
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
-      <h1>{headlineText}</h1>
+      <h1>
+        {editCreature?.enemyName
+          ? 'Edit your enemy creature:'
+          : 'Add your enemy creatures:'}
+      </h1>
       <FormContainerStyled>
         <section>
           <label htmlFor="enemyName">Enemy name:</label>
@@ -106,7 +110,10 @@ export default function CreateEnemy({
             Please enter a positive number (Max. 2 digits)
           </ErrorInfoStyled>
         )}
-        <PageButton type="submit" buttonText={buttonText} />
+        <PageButton
+          type="submit"
+          buttonText={editCreature?.enemyName ? 'Save Enemy' : 'Add Enemy'}
+        />
       </FormContainerStyled>
     </FormStyled>
   )

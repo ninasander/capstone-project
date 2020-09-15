@@ -29,7 +29,11 @@ export default function CreatePlayer({
 
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
-      <h1>Add your players' stats:</h1>
+      <h1>
+        {editCreature?.playerName
+          ? 'Edit your players stats:'
+          : 'Add your players stats:'}
+      </h1>
       <FormContainerStyled>
         <section>
           <label>Player name:</label>
@@ -86,7 +90,10 @@ export default function CreatePlayer({
             Please enter a positive number (Max. 2 digits)
           </ErrorInfoStyled>
         )}
-        <PageButton type="submit" buttonText="Add Player" />
+        <PageButton
+          type="submit"
+          buttonText={editCreature?.playerName ? 'Save Player' : 'Add Player'}
+        />
       </FormContainerStyled>
     </FormStyled>
   )
