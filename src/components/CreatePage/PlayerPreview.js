@@ -10,9 +10,10 @@ import styled from 'styled-components/macro'
 
 export default function PlayerEntry({
   playerName,
-  armorClass,
-  initiative,
+  playerArmorClass,
+  playerInitiative,
   handleDelete,
+  handleEdit,
   creatureEntry,
 }) {
   return (
@@ -21,15 +22,18 @@ export default function PlayerEntry({
         ✕
       </DeleteButtonStyled>
       <PlayerEntryStyled>
-        <h1>{initiative}</h1>
+        <h1>{playerInitiative}</h1>
         <h2>{playerName}</h2>
-        <p>AC: {armorClass}</p>
-        <EditButtonStyled>Edit</EditButtonStyled>
+        <p>AC: {playerArmorClass}</p>
+        <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
       </PlayerEntryStyled>
     </div>
   )
   function handleDeleteClick() {
     handleDelete(creatureEntry._id)
+  }
+  function handleEditClick() {
+    handleEdit(creatureEntry._id)
   }
 }
 

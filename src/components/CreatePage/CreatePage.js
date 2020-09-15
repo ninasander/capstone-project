@@ -76,7 +76,11 @@ export default function CreatePage({
           ) : null
         )}
       </PreviewContainerStyled>
-      <CreatePlayer addCreatureEntry={addCreatureEntry} />
+      <CreatePlayer
+        addCreatureEntry={addCreatureEntry}
+        editCreature={editCreature}
+        editCreatureEntry={editCreatureEntry}
+      />
       {hasPlayer ? (
         <PageButton
           type="button"
@@ -93,11 +97,12 @@ export default function CreatePage({
           creatureEntry.playerName ? (
             <PlayerPreview
               playerName={creatureEntry.playerName}
-              armorClass={creatureEntry.armorClass}
-              initiative={creatureEntry.initiative}
+              playerArmorClass={creatureEntry.playerArmorClass}
+              playerInitiative={creatureEntry.playerInitiative}
               creatureEntry={creatureEntry}
               key={creatureEntry._id}
               handleDelete={onDelete}
+              handleEdit={onEdit}
             />
           ) : null
         )}

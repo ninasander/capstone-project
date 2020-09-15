@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import PageButton from '../Buttons/PageButton'
 
-export default function CreatePlayer({ addCreatureEntry }) {
-  const { register, handleSubmit, errors } = useForm()
-  const onSubmit = (playerEntry, event) => {
+export default function CreatePlayer({
+  addCreatureEntry,
+  editCreatureEntry,
+  editCreature,
+}) {
+  const { register, handleSubmit, errors, setValue } = useForm()
+
+  const onSubmit = (creatureEntry, event) => {
     event.target.reset()
-    addCreatureEntry(playerEntry)
+    if (editCreature) {
+      editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
+    } else {
+      addCreatureEntry(creatureEntry)
+    }
   }
+
+  useEffect(() => {
+    if (editCreature) {
+      setValue('playerName', editCreature.playerName)
+      setValue('playerArmorClass', editCreature.playerArmorClass)
+      setValue('playerInitiative', editCreature.playerInitiative)
+    }
+  }, [editCreature, setValue])
 
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +55,7 @@ export default function CreatePlayer({ addCreatureEntry }) {
           <input
             type="number"
             placeholder="Armor Class"
-            name="armorClass"
+            name="playerArmorClass"
             ref={register({
               required: true,
               min: 0,
@@ -56,7 +73,7 @@ export default function CreatePlayer({ addCreatureEntry }) {
         <input
           type="number"
           placeholder="(D20 + Dex)"
-          name="initiative"
+          name="playerInitiative"
           ref={register({
             required: true,
             min: 0,
@@ -97,12 +114,12 @@ const FormStyled = styled.form`
     &[name='playerName'] {
       width: 175px;
     }
-    &[name='armorClass'] {
+    &[name='playerArmorClass'] {
       width: 80px;
       margin-right: 10px;
       -moz-appearance: textfield;
     }
-    &[name='initiative'] {
+    &[name='playerInitiative'] {
       width: 90px;
       margin-right: 10px;
       -moz-appearance: textfield;

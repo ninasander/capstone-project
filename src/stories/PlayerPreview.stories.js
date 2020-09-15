@@ -14,6 +14,7 @@ const creatureEntry = {
 
 export const Enemy = () => (
   <PlayerPreview
+    creatureEntry={creatureEntry}
     playerName={creatureEntry.playerName}
     armorClass={creatureEntry.armorClass}
     initiative={creatureEntry.initiative}
