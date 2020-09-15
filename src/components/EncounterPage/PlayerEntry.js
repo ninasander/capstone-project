@@ -8,12 +8,16 @@ import styled from 'styled-components/macro'
 //   initiative: PropTypes.number.isRequired,
 // }
 
-export default function PlayerEntry({ playerName, armorClass, initiative }) {
+export default function PlayerEntry({
+  playerName,
+  playerArmorClass,
+  playerInitiative,
+}) {
   return (
     <PlayerEntryStyled>
-      <h1>{initiative}</h1>
+      <h1>{playerInitiative}</h1>
       <h2>{playerName}</h2>
-      <p>AC: {armorClass}</p>
+      <p>AC: {playerArmorClass}</p>
     </PlayerEntryStyled>
   )
 }
