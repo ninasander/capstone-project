@@ -67,7 +67,7 @@ export default function CreatePlayer({
               pattern: /^[0-9]+$/i,
             })}
           />
-          {errors.armorClass && (
+          {errors.playerArmorClass && (
             <ErrorInfoStyled>
               Please enter a positive number (Max. 2 digits)
             </ErrorInfoStyled>
@@ -85,7 +85,7 @@ export default function CreatePlayer({
             pattern: /^[0-9]+$/i,
           })}
         />
-        {errors.initiative && (
+        {errors.playerInitiative && (
           <ErrorInfoStyled>
             Please enter a positive number (Max. 2 digits)
           </ErrorInfoStyled>

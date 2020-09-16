@@ -42,12 +42,6 @@ export default function CreatePage({
         editCreature={editCreature}
         editCreatureEntry={editCreatureEntry}
         addCreatureEntry={addCreatureEntry}
-        buttonText={editCreature ? 'Save Enemy' : 'Add Enemy'}
-        headlineText={
-          editCreature
-            ? 'Edit your enemy creature:'
-            : 'Add your enemy creature:'
-        }
       />
       {hasEnemy ? (
         <PageButton

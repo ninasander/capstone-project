@@ -6,8 +6,6 @@ import styled from 'styled-components/macro'
 export default function CreateEnemy({
   addCreatureEntry,
   editCreatureEntry,
-  buttonText,
-  headlineText,
   editCreature,
 }) {
   const { register, handleSubmit, errors, setValue } = useForm()
