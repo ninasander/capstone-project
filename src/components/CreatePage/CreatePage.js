@@ -55,15 +55,16 @@ export default function CreatePage({
         />
       ) : null}
       <PreviewContainerStyled {...bindEnemy} style={enemyPreviewStyle}>
-        {creatureEntries.map((creatureEntry) =>
-          creatureEntry.enemyName ? (
-            <EnemyPreview
-              creatureEntry={creatureEntry}
-              key={creatureEntry._id}
-              handleDelete={onDelete}
-              handleEdit={onEdit}
-            />
-          ) : null
+        {creatureEntries.map(
+          (creatureEntry) =>
+            creatureEntry.enemyName && (
+              <EnemyPreview
+                creatureEntry={creatureEntry}
+                key={creatureEntry._id}
+                handleDelete={onDelete}
+                handleEdit={onEdit}
+              />
+            )
         )}
       </PreviewContainerStyled>
       <CreatePlayer
@@ -83,15 +84,16 @@ export default function CreatePage({
         />
       ) : null}
       <PreviewContainerStyled {...bindPlayer} style={playerPreviewStyle}>
-        {creatureEntries.map((creatureEntry) =>
-          creatureEntry.playerName ? (
-            <PlayerPreview
-              creatureEntry={creatureEntry}
-              key={creatureEntry._id}
-              handleDelete={onDelete}
-              handleEdit={onEdit}
-            />
-          ) : null
+        {creatureEntries.map(
+          (creatureEntry) =>
+            creatureEntry.playerName && (
+              <PlayerPreview
+                creatureEntry={creatureEntry}
+                key={creatureEntry._id}
+                handleDelete={onDelete}
+                handleEdit={onEdit}
+              />
+            )
         )}
       </PreviewContainerStyled>
       {hasEnemy === true && hasPlayer === true ? (

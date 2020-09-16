@@ -12,11 +12,9 @@ export default function CreatePlayer({
 
   const onSubmit = (creatureEntry, event) => {
     event.target.reset()
-    if (editCreature) {
-      editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
-    } else {
-      addCreatureEntry(creatureEntry)
-    }
+    editCreature
+      ? editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
+      : addCreatureEntry(creatureEntry)
   }
 
   useEffect(() => {

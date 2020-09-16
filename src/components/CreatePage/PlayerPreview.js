@@ -14,7 +14,7 @@ export default function PlayerPreview({
   creatureEntry,
 }) {
   return (
-    <div>
+    <>
       <DeleteButtonStyled onClick={handleDeleteClick} id={creatureEntry._id}>
         ✕
       </DeleteButtonStyled>
@@ -24,7 +24,7 @@ export default function PlayerPreview({
         <p>AC: {creatureEntry.playerArmorClass}</p>
         <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
       </PlayerEntryStyled>
-    </div>
+    </>
   )
   function handleDeleteClick() {
     handleDelete(creatureEntry._id)

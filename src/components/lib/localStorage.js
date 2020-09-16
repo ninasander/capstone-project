@@ -1,9 +1,7 @@
 export function loadLocally(key) {
   try {
     const serializedData = localStorage.getItem(key)
-    if (serializedData) {
-      return JSON.parse(serializedData)
-    }
+    serializedData && JSON.parse(serializedData)
   } catch (error) {
     console.log(error)
   }
@@ -11,8 +9,7 @@ export function loadLocally(key) {
 
 export function saveLocally(key, value) {
   try {
-    const serializedData = JSON.stringify(value)
-    localStorage.setItem(key, serializedData)
+    localStorage.setItem(key, JSON.stringify(value))
   } catch (error) {
     console.log(error)
   }
