@@ -1,19 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-// EnemyPreview.propTypes = {
-//   enemyName: PropTypes.string.isRequired,
-//   armorClass: PropTypes.number.isRequired,
-//   HP: PropTypes.number.isRequired,
-//   initiative: PropTypes.number.isRequired,
-// }
+EnemyPreview.propTypes = {
+  creatureEntry: PropTypes.object.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+}
 
 export default function EnemyPreview({
-  enemyName,
-  armorClass,
-  HP,
-  initiative,
   creatureEntry,
   handleDelete,
   handleEdit,
@@ -24,12 +19,12 @@ export default function EnemyPreview({
         ✕
       </DeleteButtonStyled>
       <EnemyEntryStyled>
-        <h1>{initiative}</h1>
-        <h2>{enemyName}</h2>
+        <h1>{creatureEntry.initiative}</h1>
+        <h2>{creatureEntry.enemyName}</h2>
         <p>
-          HP: {HP}/{HP}
+          HP: {creatureEntry.HP}/{creatureEntry.HP}
         </p>
-        <p>AC: {armorClass}</p>
+        <p>AC: {creatureEntry.armorClass}</p>
         <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
       </EnemyEntryStyled>
     </>

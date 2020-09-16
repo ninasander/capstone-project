@@ -1,17 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-// PlayerEntry.propTypes = {
-//   playerName: PropTypes.string.isRequired,
-//   armorClass: PropTypes.number.isRequired,
-//   initiative: PropTypes.number.isRequired,
-// }
+PlayerPreview.propTypes = {
+  creatureEntry: PropTypes.object.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+}
 
-export default function PlayerEntry({
-  playerName,
-  playerArmorClass,
-  playerInitiative,
+export default function PlayerPreview({
   handleDelete,
   handleEdit,
   creatureEntry,
@@ -22,9 +19,9 @@ export default function PlayerEntry({
         ✕
       </DeleteButtonStyled>
       <PlayerEntryStyled>
-        <h1>{playerInitiative}</h1>
-        <h2>{playerName}</h2>
-        <p>AC: {playerArmorClass}</p>
+        <h1>{creatureEntry.playerInitiative}</h1>
+        <h2>{creatureEntry.playerName}</h2>
+        <p>AC: {creatureEntry.playerArmorClass}</p>
         <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
       </PlayerEntryStyled>
     </div>

@@ -58,10 +58,6 @@ export default function CreatePage({
         {creatureEntries.map((creatureEntry) =>
           creatureEntry.enemyName ? (
             <EnemyPreview
-              enemyName={creatureEntry.enemyName}
-              armorClass={creatureEntry.armorClass}
-              initiative={creatureEntry.initiative}
-              HP={creatureEntry.HP}
               creatureEntry={creatureEntry}
               key={creatureEntry._id}
               handleDelete={onDelete}
@@ -90,9 +86,6 @@ export default function CreatePage({
         {creatureEntries.map((creatureEntry) =>
           creatureEntry.playerName ? (
             <PlayerPreview
-              playerName={creatureEntry.playerName}
-              playerArmorClass={creatureEntry.playerArmorClass}
-              playerInitiative={creatureEntry.playerInitiative}
               creatureEntry={creatureEntry}
               key={creatureEntry._id}
               handleDelete={onDelete}

@@ -1,10 +1,5 @@
 import { useLayoutEffect, useState, useRef } from 'react'
 
-/**
- * Usage:
- *    const {height, bind} = useHeight()
- *    <div {...bind} style={{height: isActive ? height : 0}}>Measured element</div>
- */
 export default function usePlayerPreviewHeight(deps) {
   const [calculatedHeight, setCalculatedHeight] = useState(0)
   const ref = useRef()

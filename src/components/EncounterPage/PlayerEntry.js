@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-// PlayerEntry.propTypes = {
-//   playerName: PropTypes.string.isRequired,
-//   armorClass: PropTypes.number.isRequired,
-//   initiative: PropTypes.number.isRequired,
-// }
+PlayerEntry.propTypes = {
+  playerName: PropTypes.string.isRequired,
+  playerArmorClass: PropTypes.number.isRequired,
+  playerInitiative: PropTypes.number.isRequired,
+}
 
 export default function PlayerEntry({
   playerName,

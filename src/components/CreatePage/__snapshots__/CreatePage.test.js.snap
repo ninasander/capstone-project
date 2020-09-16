@@ -1,0 +1,493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePage renders correctly 1`] = `
+.c3 {
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+  font-size: 100%;
+  font-family: 'Gentium Book Basic',serif;
+  display: block;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c1 {
+  color: white;
+}
+
+.c1 h1 {
+  font-size: 120%;
+}
+
+.c1 section {
+  margin-bottom: 10px;
+}
+
+.c1 label {
+  margin-right: 10px;
+  font-size: 110%;
+}
+
+.c1 input {
+  font-size: 65%;
+  text-align: center;
+}
+
+.c1 input::-webkit-outer-spin-button,
+.c1 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.c1 input[name='enemyName'] {
+  width: 170px;
+}
+
+.c1 input[name='HP'] {
+  width: 100px;
+  margin-right: 25px;
+  -moz-appearance: textfield;
+}
+
+.c1 input[name='armorClass'] {
+  width: 90px;
+  -moz-appearance: textfield;
+}
+
+.c1 input[name='initiative'] {
+  width: 90px;
+  margin-right: 10px;
+  -moz-appearance: textfield;
+}
+
+.c2 {
+  padding: 20px;
+  background: hsla(208,40%,28%,0.5);
+  border-radius: 5px;
+}
+
+.c8 {
+  color: white;
+}
+
+.c8 h1 {
+  font-size: 120%;
+}
+
+.c8 section {
+  margin-bottom: 10px;
+}
+
+.c8 label {
+  margin-right: 10px;
+  font-size: 110%;
+}
+
+.c8 input {
+  font-size: 65%;
+  text-align: center;
+}
+
+.c8 input::-webkit-outer-spin-button,
+.c8 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.c8 input[name='playerName'] {
+  width: 175px;
+}
+
+.c8 input[name='playerArmorClass'] {
+  width: 80px;
+  margin-right: 10px;
+  -moz-appearance: textfield;
+}
+
+.c8 input[name='playerInitiative'] {
+  width: 90px;
+  margin-right: 10px;
+  -moz-appearance: textfield;
+}
+
+.c9 {
+  padding: 20px;
+  background: hsla(208,40%,28%,0.5);
+  border-radius: 5px;
+}
+
+.c5 {
+  color: red;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-style: none;
+  font-size: 110%;
+  position: relative;
+  left: 285px;
+  top: 35px;
+  z-index: 100;
+}
+
+.c7 {
+  color: green;
+  background: lightgreen;
+  border-style: none;
+  grid-column: span 3;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-self: center;
+}
+
+.c6 {
+  font-size: 80%;
+  margin: 0 20px;
+  padding: 20px;
+  display: grid;
+  grid-gap: 5px 20px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  grid-template-columns: 1fr 2fr 2fr;
+  background: hsla(208,40%,28%,1);
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c6 h1 {
+  grid-row: span 2;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c6 h2 {
+  grid-column: span 2;
+  margin: 0;
+  font-size: 140%;
+  word-break: break-word;
+}
+
+.c6 p {
+  margin: 0;
+}
+
+.c10 {
+  color: red;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-style: none;
+  font-size: 110%;
+  position: relative;
+  left: 285px;
+  top: 35px;
+  z-index: 100;
+}
+
+.c12 {
+  color: green;
+  background: lightgreen;
+  border-style: none;
+  grid-column: span 3;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-self: center;
+}
+
+.c11 {
+  font-size: 80%;
+  margin: 0 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c11 h1 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 10px 0;
+}
+
+.c11 h2 {
+  margin: 0;
+  font-size: 140%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c11 p {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 0 20px;
+}
+
+.c4 {
+  display: block;
+  z-index: 200;
+  overflow: hidden;
+}
+
+.c4::before,
+.c4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c4::before {
+  height: 0;
+  background: linear-gradient(#0002,#0000);
+}
+
+.c4::after {
+  height: auto;
+  bottom: 0;
+  background: linear-gradient(#0000,#0001);
+}
+
+.c0 {
+  margin: 20px;
+  color: white;
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
+  className="c0"
+>
+  <form
+    className="c1"
+    onSubmit={[Function]}
+  >
+    <h1>
+      Add your enemy creatures:
+    </h1>
+    <div
+      className="c2"
+    >
+      <section>
+        <label
+          htmlFor="enemyName"
+        >
+          Enemy name:
+        </label>
+        <input
+          name="enemyName"
+          placeholder="Big Bad Evil Guy"
+          type="text"
+        />
+      </section>
+      <section>
+        <label
+          htmlFor="HP"
+        >
+          HP:
+        </label>
+        <input
+          name="HP"
+          placeholder="Max. Hit Points"
+          type="number"
+        />
+        <label
+          htmlFor="armorClass"
+        >
+          AC:
+        </label>
+        <input
+          name="armorClass"
+          placeholder="Armor Class"
+          type="number"
+        />
+      </section>
+      <label
+        htmlFor="initiative"
+      >
+        Initiative:
+      </label>
+      <input
+        name="initiative"
+        placeholder="(D20 + Dex)"
+        type="number"
+      />
+      <button
+        className="c3"
+      >
+        Add Enemy
+      </button>
+    </div>
+  </form>
+  <button
+    className="c3"
+    onClick={[Function]}
+  >
+    Show Created Enemies ▼
+  </button>
+  <div
+    className="c4"
+    style={
+      Object {
+        "height": 0,
+      }
+    }
+  >
+    <button
+      className="c5"
+      id={5}
+      onClick={[Function]}
+    >
+      ✕
+    </button>
+    <div
+      className="c6"
+    >
+      <h1>
+        20
+      </h1>
+      <h2>
+        Enemy 1
+      </h2>
+      <p>
+        HP: 
+        50
+        /
+        50
+      </p>
+      <p>
+        AC: 
+        17
+      </p>
+      <button
+        className="c7"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+  </div>
+  <form
+    className="c8"
+    onSubmit={[Function]}
+  >
+    <h1>
+      Add your players stats:
+    </h1>
+    <div
+      className="c9"
+    >
+      <section>
+        <label>
+          Player name:
+        </label>
+        <input
+          name="playerName"
+          placeholder="Ser Hero Fancypants"
+          type="text"
+        />
+      </section>
+      <section>
+        <label>
+          AC:
+        </label>
+        <input
+          name="playerArmorClass"
+          placeholder="Armor Class"
+          type="number"
+        />
+      </section>
+      <label>
+        Initiative:
+      </label>
+      <input
+        name="playerInitiative"
+        placeholder="(D20 + Dex)"
+        type="number"
+      />
+      <button
+        className="c3"
+      >
+        Add Player
+      </button>
+    </div>
+  </form>
+  <button
+    className="c3"
+    onClick={[Function]}
+  >
+    Show Created Players ▼
+  </button>
+  <div
+    className="c4"
+    style={
+      Object {
+        "height": 0,
+      }
+    }
+  >
+    <div>
+      <button
+        className="c10"
+        id={10}
+        onClick={[Function]}
+      >
+        ✕
+      </button>
+      <div
+        className="c11"
+      >
+        <h1>
+          20
+        </h1>
+        <h2>
+          Player 1
+        </h2>
+        <p>
+          AC: 
+          17
+        </p>
+        <button
+          className="c12"
+          onClick={[Function]}
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+  <a
+    href="/encounter"
+  >
+    <button
+      className="c3"
+    >
+      Start Encounter
+    </button>
+  </a>
+</div>
+`;
