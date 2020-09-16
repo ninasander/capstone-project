@@ -7,6 +7,7 @@ export default function CreateEnemy({
   addCreatureEntry,
   editCreatureEntry,
   editCreature,
+  setEditCreature,
 }) {
   const { register, handleSubmit, errors, setValue } = useForm()
 
@@ -14,6 +15,7 @@ export default function CreateEnemy({
     event.target.reset()
     if (editCreature) {
       editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
+      setEditCreature(undefined)
     } else {
       addCreatureEntry(creatureEntry)
     }

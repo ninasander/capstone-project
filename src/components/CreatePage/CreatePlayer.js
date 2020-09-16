@@ -7,14 +7,18 @@ export default function CreatePlayer({
   addCreatureEntry,
   editCreatureEntry,
   editCreature,
+  setEditCreature,
 }) {
   const { register, handleSubmit, errors, setValue } = useForm()
 
   const onSubmit = (creatureEntry, event) => {
     event.target.reset()
-    editCreature
-      ? editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
-      : addCreatureEntry(creatureEntry)
+    if (editCreature) {
+      editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
+      setEditCreature(undefined)
+    } else {
+      addCreatureEntry(creatureEntry)
+    }
   }
 
   useEffect(() => {

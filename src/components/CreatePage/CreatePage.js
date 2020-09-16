@@ -40,6 +40,7 @@ export default function CreatePage({
     <FormsStyled>
       <CreateEnemy
         editCreature={editCreature}
+        setEditCreature={setEditCreature}
         editCreatureEntry={editCreatureEntry}
         addCreatureEntry={addCreatureEntry}
       />
@@ -70,6 +71,7 @@ export default function CreatePage({
       <CreatePlayer
         addCreatureEntry={addCreatureEntry}
         editCreature={editCreature}
+        setEditCreature={setEditCreature}
         editCreatureEntry={editCreatureEntry}
       />
       {hasPlayer ? (
