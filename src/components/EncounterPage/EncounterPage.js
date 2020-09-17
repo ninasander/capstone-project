@@ -3,6 +3,7 @@ import EnemyEntry from './EnemyEntry'
 import PlayerEntry from './PlayerEntry'
 import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
+import TurnButton from '../Buttons/TurnButton'
 
 export default function EncounterPage({ creatureEntries }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -48,8 +49,18 @@ export default function EncounterPage({ creatureEntries }) {
           />
         )
       )}
-      <PageButton buttonText="<--" onClick={setLastTurn} />
-      <PageButton buttonText="-->" onClick={setNextTurn} />
+      <ButtonContainer>
+        <TurnButton
+          buttonText="Previous Turn"
+          arrowSymbol={'←'}
+          onClick={setLastTurn}
+        />
+        <TurnButton
+          buttonText="Next Turn"
+          arrowSymbol={'→'}
+          onClick={setNextTurn}
+        />
+      </ButtonContainer>
       <TurnCounterStyled>
         Turn: {turnNumber}/{creaturesByInitiative.length}
       </TurnCounterStyled>
@@ -59,6 +70,7 @@ export default function EncounterPage({ creatureEntries }) {
       </LinkStyled>
     </>
   )
+
   function setNextTurn() {
     setActiveIndex(
       activeIndex < creaturesByInitiative.length - 1 ? activeIndex + 1 : 0
@@ -70,6 +82,7 @@ export default function EncounterPage({ creatureEntries }) {
       turnNumber < creaturesByInitiative.length ? roundNumber : roundNumber + 1
     )
   }
+
   function setLastTurn() {
     setActiveIndex(
       activeIndex === 0 && roundNumber === 1
@@ -94,6 +107,11 @@ export default function EncounterPage({ creatureEntries }) {
     window.localStorage.clear()
   }
 }
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const TurnCounterStyled = styled.p`
   color: white;

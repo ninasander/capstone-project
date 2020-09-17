@@ -50,7 +50,9 @@ const EnemyEntryStyled = styled.div`
     fixed no-repeat;
   color: white;
   border-radius: 5px;
-  box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
+  box-shadow: ${(props) =>
+    props.active ? '0 0 15px green' : '4px 4px 6px rgba(8, 15, 21, 0.3)'};
+  border: ${(props) => props.active && '2px solid green'};
   h1 {
     grid-row: span 3;
     align-self: center;
@@ -64,6 +66,4 @@ const EnemyEntryStyled = styled.div`
   p {
     margin: 0;
   }
-
-  border: ${(props) => props.active && '2px solid green'};
 `
