@@ -39,6 +39,7 @@ const PlayerEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
+  border: ${(props) => props.active && '2px solid green'};
   h1 {
     grid-row: span 2;
     align-self: center;
@@ -50,9 +51,5 @@ const PlayerEntryStyled = styled.div`
   p {
     align-self: center;
     margin: 0;
-  }
-  &:active {
-    background: hotpink !important;
-    border: 2px solid green;
   }
 `

@@ -5,8 +5,9 @@ import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
 
 export default function EncounterPage({ creatureEntries }) {
-  const [activeIndex, setActiveIndex] = useState(null)
-  console.log(activeIndex)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [turnNumber, setTurnNumber] = useState(1)
+  const [roundNumber, setRoundNumber] = useState(1)
 
   const players = creatureEntries
     .slice()
@@ -23,8 +24,6 @@ export default function EncounterPage({ creatureEntries }) {
     .slice()
     .sort((entry1, entry2) => entry1.initiative < entry2.initiative)
 
-  console.log(creaturesByInitiative)
-
   return (
     <>
       {creaturesByInitiative.map((creatureEntry, index) =>
@@ -32,7 +31,6 @@ export default function EncounterPage({ creatureEntries }) {
           <EnemyEntry
             index={index}
             activeIndex={activeIndex}
-            // active={index === activeIndex}
             enemyName={creatureEntry.enemyName}
             armorClass={creatureEntry.armorClass}
             HP={creatureEntry.HP}
@@ -43,7 +41,6 @@ export default function EncounterPage({ creatureEntries }) {
           <PlayerEntry
             index={index}
             activeIndex={activeIndex}
-            // active={index === activeIndex}
             playerName={creatureEntry.playerName}
             playerArmorClass={creatureEntry.playerArmorClass}
             playerInitiative={creatureEntry.playerInitiative}
@@ -53,17 +50,43 @@ export default function EncounterPage({ creatureEntries }) {
       )}
       <PageButton buttonText="<--" onClick={setLastTurn} />
       <PageButton buttonText="-->" onClick={setNextTurn} />
+      <TurnCounterStyled>
+        Turn: {turnNumber}/{creaturesByInitiative.length}
+      </TurnCounterStyled>
+      <RoundCounterStyled>Round: {roundNumber}</RoundCounterStyled>
       <LinkStyled href="/">
         <PageButton onClick={onEndEncounter} buttonText="End Encounter" />
       </LinkStyled>
     </>
   )
   function setNextTurn() {
-    setActiveIndex(activeIndex === null ? 0 : activeIndex + 1)
+    setActiveIndex(
+      activeIndex < creaturesByInitiative.length - 1 ? activeIndex + 1 : 0
+    )
+    setTurnNumber(
+      turnNumber < creaturesByInitiative.length ? turnNumber + 1 : 1
+    )
+    setRoundNumber(
+      turnNumber < creaturesByInitiative.length ? roundNumber : roundNumber + 1
+    )
   }
   function setLastTurn() {
     setActiveIndex(
-      activeIndex === null ? creaturesByInitiative.length - 1 : activeIndex - 1
+      activeIndex === 0 && roundNumber === 1
+        ? 0
+        : turnNumber === 1 && roundNumber > 1
+        ? creaturesByInitiative.length - 1
+        : activeIndex - 1
+    )
+    setTurnNumber(
+      turnNumber === 1 && roundNumber === 1
+        ? 1
+        : turnNumber === 1 && roundNumber > 1
+        ? creaturesByInitiative.length
+        : turnNumber - 1
+    )
+    setRoundNumber(
+      turnNumber === 1 && roundNumber > 1 ? roundNumber - 1 : roundNumber
     )
   }
 
@@ -71,6 +94,19 @@ export default function EncounterPage({ creatureEntries }) {
     window.localStorage.clear()
   }
 }
+
+const TurnCounterStyled = styled.p`
+  color: white;
+  font-size: 112.5%;
+  margin: 10px;
+  text-align: center;
+`
+const RoundCounterStyled = styled.p`
+  color: white;
+  font-size: 112.5%;
+  margin: 10px;
+  text-align: center;
+`
 
 const LinkStyled = styled.a`
   text-decoration: none;

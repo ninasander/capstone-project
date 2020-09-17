@@ -20,8 +20,6 @@ export default function EnemyEntry({
 }) {
   const [currentHP, setCurrentHP] = useState(HP)
 
-  console.log('index:', index, 'activeIndex:', activeIndex)
-
   return (
     <EnemyEntryStyled active={index === activeIndex}>
       <h1>{initiative}</h1>
@@ -66,8 +64,6 @@ const EnemyEntryStyled = styled.div`
   p {
     margin: 0;
   }
-  &:active {
-    background: hotpink !important;
-    border: 2px solid green;
-  }
+
+  border: ${(props) => props.active && '2px solid green'};
 `
