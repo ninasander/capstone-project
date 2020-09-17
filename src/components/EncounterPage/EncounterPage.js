@@ -23,7 +23,9 @@ export default function EncounterPage({ creatureEntries }) {
   const creaturesToSort = [...playersToSort, ...enemies]
   const creaturesByInitiative = creaturesToSort
     .slice()
-    .sort((entry1, entry2) => entry1.initiative < entry2.initiative)
+    .sort(
+      (entry1, entry2) => Number(entry1.initiative) < Number(entry2.initiative)
+    )
 
   return (
     <>
