@@ -1,20 +1,29 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import HPCalculator from './HPCalculator'
 
-EnemyEntry.propTypes = {
-  enemyName: PropTypes.string.isRequired,
-  armorClass: PropTypes.number.isRequired,
-  HP: PropTypes.number.isRequired,
-  initiative: PropTypes.number.isRequired,
-}
+// EnemyEntry.propTypes = {
+//   enemyName: PropTypes.string.isRequired,
+//   armorClass: PropTypes.number.isRequired,
+//   HP: PropTypes.number.isRequired,
+//   initiative: PropTypes.number.isRequired,
+// }
 
-export default function EnemyEntry({ enemyName, armorClass, HP, initiative }) {
+export default function EnemyEntry({
+  enemyName,
+  armorClass,
+  HP,
+  initiative,
+  index,
+  activeIndex,
+}) {
   const [currentHP, setCurrentHP] = useState(HP)
 
+  console.log('index:', index, 'activeIndex:', activeIndex)
+
   return (
-    <EnemyEntryStyled>
+    <EnemyEntryStyled active={index === activeIndex}>
       <h1>{initiative}</h1>
       <h2>{enemyName}</h2>
       <p>
@@ -56,5 +65,9 @@ const EnemyEntryStyled = styled.div`
   }
   p {
     margin: 0;
+  }
+  &:active {
+    background: hotpink !important;
+    border: 2px solid green;
   }
 `

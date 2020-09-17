@@ -1,20 +1,22 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-PlayerEntry.propTypes = {
-  playerName: PropTypes.string.isRequired,
-  playerArmorClass: PropTypes.number.isRequired,
-  playerInitiative: PropTypes.number.isRequired,
-}
+// PlayerEntry.propTypes = {
+//   playerName: PropTypes.string.isRequired,
+//   playerArmorClass: PropTypes.number.isRequired,
+//   playerInitiative: PropTypes.number.isRequired,
+// }
 
 export default function PlayerEntry({
   playerName,
   playerArmorClass,
   playerInitiative,
+  index,
+  activeIndex,
 }) {
   return (
-    <PlayerEntryStyled>
+    <PlayerEntryStyled active={index === activeIndex}>
       <h1>{playerInitiative}</h1>
       <h2>{playerName}</h2>
       <p>AC: {playerArmorClass}</p>
@@ -48,5 +50,9 @@ const PlayerEntryStyled = styled.div`
   p {
     align-self: center;
     margin: 0;
+  }
+  &:active {
+    background: hotpink !important;
+    border: 2px solid green;
   }
 `
