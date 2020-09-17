@@ -5,7 +5,12 @@ import CreatePage from './components/CreatePage/CreatePage'
 import useCreatureEntries from './components/hooks/useCreatureEntries'
 
 function App() {
-  const { creatureEntries, addCreatureEntry } = useCreatureEntries()
+  const {
+    creatureEntries,
+    addCreatureEntry,
+    deleteCreatureEntry,
+    editCreatureEntry,
+  } = useCreatureEntries()
   return (
     <Router>
       <Switch>
@@ -16,6 +21,8 @@ function App() {
           <CreatePage
             creatureEntries={creatureEntries}
             addCreatureEntry={addCreatureEntry}
+            deleteCreatureEntry={deleteCreatureEntry}
+            editCreatureEntry={editCreatureEntry}
           />
         </Route>
       </Switch>

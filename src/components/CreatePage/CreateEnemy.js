@@ -1,18 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import PageButton from '../Buttons/PageButton'
 import styled from 'styled-components/macro'
 
-export default function CreateMonster({ addCreatureEntry }) {
-  const { register, handleSubmit, errors } = useForm()
-  const onSubmit = (enemyEntry, event) => {
+export default function CreateEnemy({
+  addCreatureEntry,
+  editCreatureEntry,
+  editCreature,
+  setEditCreature,
+}) {
+  const { register, handleSubmit, errors, setValue } = useForm()
+
+  const onSubmit = (creatureEntry, event) => {
     event.target.reset()
-    addCreatureEntry(enemyEntry)
+    if (editCreature) {
+      editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
+      setEditCreature(undefined)
+    } else {
+      addCreatureEntry(creatureEntry)
+    }
   }
+
+  useEffect(() => {
+    if (editCreature) {
+      setValue('enemyName', editCreature.enemyName)
+      setValue('HP', editCreature.HP)
+      setValue('armorClass', editCreature.armorClass)
+      setValue('initiative', editCreature.initiative)
+    }
+  }, [editCreature, setValue])
 
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
-      <h1>Add your enemy creatures:</h1>
+      <h1>
+        {editCreature?.enemyName
+          ? 'Edit your enemy creature:'
+          : 'Add your enemy creatures:'}
+      </h1>
       <FormContainerStyled>
         <section>
           <label htmlFor="enemyName">Enemy name:</label>
@@ -86,7 +110,10 @@ export default function CreateMonster({ addCreatureEntry }) {
             Please enter a positive number (Max. 2 digits)
           </ErrorInfoStyled>
         )}
-        <PageButton type="submit" buttonText="Add Enemy" />
+        <PageButton
+          type="submit"
+          buttonText={editCreature?.enemyName ? 'Save Enemy' : 'Add Enemy'}
+        />
       </FormContainerStyled>
     </FormStyled>
   )

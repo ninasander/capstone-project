@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerPreview renders correctly 1`] = `
+.c0 {
+  color: red;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-style: none;
+  font-size: 110%;
+  position: relative;
+  left: 285px;
+  top: 35px;
+  z-index: 100;
+}
+
+.c2 {
+  color: green;
+  background: lightgreen;
+  border-style: none;
+  grid-column: span 3;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-self: center;
+}
+
+.c1 {
+  font-size: 80%;
+  margin: 0 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background: linear-gradient( 180deg,hsla(208,40%,28%,1) 0%,hsla(208,40%,23%,1) 51%,hsla(207,38%,18%,1) 100% ) fixed no-repeat;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(8,15,21,0.3);
+}
+
+.c1 h1 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 10px 0;
+}
+
+.c1 h2 {
+  margin: 0;
+  font-size: 140%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c1 p {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 0 20px;
+}
+
+<div>
+  <button
+    className="c0"
+    id={10}
+    onClick={[Function]}
+  >
+    ✕
+  </button>
+  <div
+    className="c1"
+  >
+    <h1>
+      20
+    </h1>
+    <h2>
+      Player 1
+    </h2>
+    <p>
+      AC: 
+      17
+    </p>
+    <button
+      className="c2"
+      onClick={[Function]}
+    >
+      Edit
+    </button>
+  </div>
+</div>
+`;

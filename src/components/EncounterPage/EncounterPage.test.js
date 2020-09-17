@@ -14,7 +14,11 @@ describe('EncounterPage', () => {
           armorClass={17}
           initiative={20}
         />
-        <PlayerEntry playerName={'Player 1'} armorClass={16} initiative={18} />
+        <PlayerEntry
+          playerName={'Player 1'}
+          playerArmorClass={16}
+          playerInitiative={18}
+        />
         <EnemyEntry
           enemyName={'Enemy 2'}
           HP={30}

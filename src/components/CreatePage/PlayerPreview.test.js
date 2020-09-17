@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import PlayerEntry from '../EncounterPage/PlayerEntry'
+import PlayerPreview from '../CreatePage/PlayerPreview'
 import 'jest-styled-components'
 
-describe('PlayerEntry', () => {
+describe.only('PlayerPreview', () => {
   const creatureEntry = {
     playerName: 'Player 1',
     playerArmorClass: 17,
@@ -14,7 +14,10 @@ describe('PlayerEntry', () => {
 
   it('displays the player name', () => {
     const { getByText } = render(
-      <PlayerEntry
+      <PlayerPreview
+        handleDelete={jest.fn()}
+        handleEdit={jest.fn()}
+        creatureEntry={creatureEntry}
         playerName={creatureEntry.playerName}
         playerArmorClass={creatureEntry.playerArmorClass}
         playerInitiative={creatureEntry.playerInitiative}
@@ -28,7 +31,10 @@ describe('PlayerEntry', () => {
   it('displays the player AC', () => {
     const acEntry = 'AC: ' + creatureEntry.playerArmorClass
     const { getByText } = render(
-      <PlayerEntry
+      <PlayerPreview
+        handleDelete={jest.fn()}
+        handleEdit={jest.fn()}
+        creatureEntry={creatureEntry}
         playerName={creatureEntry.playerName}
         playerArmorClass={creatureEntry.playerArmorClass}
         playerInitiative={creatureEntry.playerInitiative}
@@ -41,7 +47,10 @@ describe('PlayerEntry', () => {
 
   it('renders correctly', () => {
     const tree = renderer.create(
-      <PlayerEntry
+      <PlayerPreview
+        handleDelete={jest.fn()}
+        handleEdit={jest.fn()}
+        creatureEntry={creatureEntry}
         playerName={creatureEntry.playerName}
         playerArmorClass={creatureEntry.playerArmorClass}
         playerInitiative={creatureEntry.playerInitiative}

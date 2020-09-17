@@ -47,6 +47,16 @@ exports[`HPCalculator renders correctly 1`] = `
   position: relative;
 }
 
+.c2::-webkit-outer-spin-button,
+.c2::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.c2[type='number'] {
+  -moz-appearance: textfield;
+}
+
 <div
   className="c0"
 >

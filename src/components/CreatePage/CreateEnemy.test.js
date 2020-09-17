@@ -2,6 +2,8 @@ import React from 'react'
 import 'jest-styled-components'
 import CreateEnemy from './CreateEnemy'
 import { render, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import 'mutationobserver-shim'
 
 describe('CreateEnemy', () => {
   it('should watch input correctly', () => {
@@ -34,8 +36,8 @@ describe('CreateEnemy', () => {
     })
 
     expect(enemyName.value).toEqual('Enemy 1')
-    expect(HP.value).toEqual(50)
-    expect(armorClass.value).toEqual(18)
-    expect(initiative.value).toEqual(20)
+    expect(HP.value).toEqual('50')
+    expect(armorClass.value).toEqual('18')
+    expect(initiative.value).toEqual('20')
   })
 })

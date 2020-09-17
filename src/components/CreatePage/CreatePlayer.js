@@ -1,18 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import PageButton from '../Buttons/PageButton'
 
-export default function CreatePlayer({ addCreatureEntry }) {
-  const { register, handleSubmit, errors } = useForm()
-  const onSubmit = (playerEntry, event) => {
+export default function CreatePlayer({
+  addCreatureEntry,
+  editCreatureEntry,
+  editCreature,
+  setEditCreature,
+}) {
+  const { register, handleSubmit, errors, setValue } = useForm()
+
+  const onSubmit = (creatureEntry, event) => {
     event.target.reset()
-    addCreatureEntry(playerEntry)
+    if (editCreature) {
+      editCreatureEntry({ ...creatureEntry, _id: editCreature._id })
+      setEditCreature(undefined)
+    } else {
+      addCreatureEntry(creatureEntry)
+    }
   }
+
+  useEffect(() => {
+    if (editCreature) {
+      setValue('playerName', editCreature.playerName)
+      setValue('playerArmorClass', editCreature.playerArmorClass)
+      setValue('playerInitiative', editCreature.playerInitiative)
+    }
+  }, [editCreature, setValue])
 
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
-      <h1>Add your players' stats:</h1>
+      <h1>
+        {editCreature?.playerName
+          ? 'Edit your players stats:'
+          : 'Add your players stats:'}
+      </h1>
       <FormContainerStyled>
         <section>
           <label>Player name:</label>
@@ -38,7 +61,7 @@ export default function CreatePlayer({ addCreatureEntry }) {
           <input
             type="number"
             placeholder="Armor Class"
-            name="armorClass"
+            name="playerArmorClass"
             ref={register({
               required: true,
               min: 0,
@@ -46,7 +69,7 @@ export default function CreatePlayer({ addCreatureEntry }) {
               pattern: /^[0-9]+$/i,
             })}
           />
-          {errors.armorClass && (
+          {errors.playerArmorClass && (
             <ErrorInfoStyled>
               Please enter a positive number (Max. 2 digits)
             </ErrorInfoStyled>
@@ -56,7 +79,7 @@ export default function CreatePlayer({ addCreatureEntry }) {
         <input
           type="number"
           placeholder="(D20 + Dex)"
-          name="initiative"
+          name="playerInitiative"
           ref={register({
             required: true,
             min: 0,
@@ -64,12 +87,15 @@ export default function CreatePlayer({ addCreatureEntry }) {
             pattern: /^[0-9]+$/i,
           })}
         />
-        {errors.initiative && (
+        {errors.playerInitiative && (
           <ErrorInfoStyled>
             Please enter a positive number (Max. 2 digits)
           </ErrorInfoStyled>
         )}
-        <PageButton type="submit" buttonText="Add Player" />
+        <PageButton
+          type="submit"
+          buttonText={editCreature?.playerName ? 'Save Player' : 'Add Player'}
+        />
       </FormContainerStyled>
     </FormStyled>
   )
@@ -97,12 +123,12 @@ const FormStyled = styled.form`
     &[name='playerName'] {
       width: 175px;
     }
-    &[name='armorClass'] {
+    &[name='playerArmorClass'] {
       width: 80px;
       margin-right: 10px;
       -moz-appearance: textfield;
     }
-    &[name='initiative'] {
+    &[name='playerInitiative'] {
       width: 90px;
       margin-right: 10px;
       -moz-appearance: textfield;
