@@ -24,7 +24,7 @@ export default function EncounterPage({ creatureEntries }) {
   const creaturesByInitiative = creaturesToSort
     .slice()
     .sort(
-      (entry1, entry2) => Number(entry1.initiative) < Number(entry2.initiative)
+      (entry1, entry2) => Number(entry2.initiative) - Number(entry1.initiative)
     )
 
   return (
@@ -93,13 +93,13 @@ export default function EncounterPage({ creatureEntries }) {
         ? creaturesByInitiative.length - 1
         : activeIndex - 1
     )
-    setTurnNumber(
-      turnNumber === 1 && roundNumber === 1
-        ? 1
-        : turnNumber === 1 && roundNumber > 1
-        ? creaturesByInitiative.length
-        : turnNumber - 1
-    )
+    !(turnNumber === 1 && roundNumber === 1) &&
+      setTurnNumber(
+        turnNumber === 1 && roundNumber > 1
+          ? creaturesByInitiative.length
+          : turnNumber - 1
+      )
+
     setRoundNumber(
       turnNumber === 1 && roundNumber > 1 ? roundNumber - 1 : roundNumber
     )

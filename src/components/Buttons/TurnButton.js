@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 TurnButton.propTypes = {
   onClick: PropTypes.func,
   buttonText: PropTypes.string.isRequired,
+  arrowSymbol: PropTypes.string.isRequired,
 }
 
 export default function TurnButton({ arrowSymbol, buttonText, onClick }) {
