@@ -67,9 +67,11 @@ export default function EncounterPage({ creatureEntries }) {
         Turn: {turnNumber}/{creaturesByInitiative.length}
       </TurnCounterStyled>
       <RoundCounterStyled>Round: {roundNumber}</RoundCounterStyled>
-      <LinkStyled href="/">
-        <PageButton onClick={onEndEncounter} buttonText="End Encounter" />
-      </LinkStyled>
+      <EndEncounterButtonContainer>
+        <LinkStyled href="/">
+          <PageButton onClick={onEndEncounter} buttonText="End Encounter" />
+        </LinkStyled>
+      </EndEncounterButtonContainer>
     </>
   )
 
@@ -109,6 +111,10 @@ export default function EncounterPage({ creatureEntries }) {
     window.localStorage.clear()
   }
 }
+
+const EndEncounterButtonContainer = styled.div`
+  margin-bottom: 20px;
+`
 
 const ButtonContainer = styled.div`
   display: flex;

@@ -18,7 +18,7 @@ export default function TurnButton({ arrowSymbol, buttonText, onClick }) {
 }
 
 const ButtonStyled = styled.button`
-  margin: 20px;
+  margin: 10px;
   padding: 5px;
   width: 140px;
   height: 60px;
