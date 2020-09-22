@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import HPCalculator from './HPCalculator'
-import { ReactComponent as HeartIcon } from '../../assets/heart.svg'
+import heartIcon from '../../assets/heart.svg'
+import d20Icon from '../../assets/d20.svg'
+import shieldIcon from '../../assets/shield.svg'
 
 EnemyEntry.propTypes = {
   enemyName: PropTypes.string.isRequired,
@@ -28,22 +30,22 @@ export default function EnemyEntry({
       <h1>{initiative}</h1>
       <h2>{enemyName}</h2>
       <HPStyled>
-        {currentHP}/<p>{HP}</p>
-        <HeartIcon />
+        <p>{currentHP}/</p>
+        <p>{HP}</p>
       </HPStyled>
       <HPCalculator currentHP={currentHP} HP={HP} setCurrentHP={setCurrentHP} />
-      <p>AC: {armorClass}</p>
+      <ACStyled>{armorClass}</ACStyled>
     </EnemyEntryStyled>
   )
 }
 
 const EnemyEntryStyled = styled.div`
   margin: 20px;
-  padding: 20px;
+  padding: 15px;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 15px;
   justify-content: space-between;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
@@ -60,8 +62,9 @@ const EnemyEntryStyled = styled.div`
       : '4px 4px 6px rgba(8, 15, 21, 0.3)'};
   border: ${(props) => props.active && '2px solid var(--dark-green)'};
   h1 {
-    grid-row: span 3;
+    grid-row: span 2;
     align-self: center;
+    margin: 0;
   }
   h2 {
     grid-column: span 3;
@@ -70,12 +73,29 @@ const EnemyEntryStyled = styled.div`
     word-break: break-word;
     align-self: center;
   }
+`
+const HPStyled = styled.div`
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
+  background-image: url(${heartIcon});
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-self: center;
+
   p {
     margin: 0;
-    align-self: center;
   }
 `
-const HPStyled = styled.p`
+const ACStyled = styled.p`
   text-align: center;
-  background-image: url('heart.png');
+  padding: 10px 0;
+  background-image: url(${shieldIcon});
+  background-size: 37px;
+  background-repeat: no-repeat;
+  background-position: center;
+  p {
+    margin: 0;
+  }
 `
