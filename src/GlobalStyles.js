@@ -20,6 +20,7 @@ body {
 --dark-blue: #152131;
 --middle-blue: #233C52;
 --light-blue: #476884;
+--highlight-blue: #4683B7;
 --dark-red: #BA162C;
 --light-red: #FF778A;
 --dark-green: #26951D;

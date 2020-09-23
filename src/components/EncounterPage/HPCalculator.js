@@ -42,14 +42,14 @@ export default function HPCalculator({ setCurrentHP, currentHP, HP }) {
 
 const CounterStyled = styled.div`
   display: flex;
-  grid-gap: 5px;
-  flex-direction: column;
+  grid-gap: 10px;
   align-items: center;
   justify-content: center;
 `
 
 const InputStyled = styled.input`
-  width: 50px;
+  width: 55px;
+  height: 30px;
   position: relative;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {

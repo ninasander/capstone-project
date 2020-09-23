@@ -20,10 +20,10 @@ const operatorColors = {
 }
 
 const ButtonStyled = styled.button`
+  width: 65px;
+  height: 30px;
   font-size: 80%;
   border-style: none;
-  width: fit-content;
-  height: fit-content;
   text-align: center;
   border-radius: 5px;
   padding: 2px 4px;

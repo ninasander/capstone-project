@@ -3,7 +3,6 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import HPCalculator from './HPCalculator'
 import heartIcon from '../../assets/heart.svg'
-import d20Icon from '../../assets/d20.svg'
 import shieldIcon from '../../assets/shield.svg'
 
 EnemyEntry.propTypes = {
@@ -27,14 +26,20 @@ export default function EnemyEntry({
 
   return (
     <EnemyEntryStyled active={index === activeIndex}>
-      <h1>{initiative}</h1>
+      <p>{initiative}</p>
       <h2>{enemyName}</h2>
+      <ACStyled>{armorClass}</ACStyled>
       <HPStyled>
         <p>{currentHP}/</p>
         <p>{HP}</p>
       </HPStyled>
-      <HPCalculator currentHP={currentHP} HP={HP} setCurrentHP={setCurrentHP} />
-      <ACStyled>{armorClass}</ACStyled>
+      <HPCalculatorContainer>
+        <HPCalculator
+          currentHP={currentHP}
+          HP={HP}
+          setCurrentHP={setCurrentHP}
+        />
+      </HPCalculatorContainer>
     </EnemyEntryStyled>
   )
 }
@@ -58,18 +63,18 @@ const EnemyEntryStyled = styled.div`
   border-radius: 5px;
   box-shadow: ${(props) =>
     props.active
-      ? '0 0 15px var(--dark-green)'
+      ? '0 0 15px var(--highlight-blue)'
       : '4px 4px 6px rgba(8, 15, 21, 0.3)'};
-  border: ${(props) => props.active && '2px solid var(--dark-green)'};
+  border: ${(props) => props.active && '2px solid var(--highlight-blue)'};
   h1 {
-    grid-row: span 2;
+    grid-row: span 3;
     align-self: center;
     margin: 0;
   }
   h2 {
-    grid-column: span 3;
+    grid-column: span 2;
     margin: 0;
-    font-size: 140%;
+    font-size: 1.8rem;
     word-break: break-word;
     align-self: center;
   }
@@ -77,9 +82,11 @@ const EnemyEntryStyled = styled.div`
 const HPStyled = styled.div`
   display: inline-block;
   text-align: center;
+
+  grid-column: span 4;
   padding: 10px 0;
   background-image: url(${heartIcon});
-  background-size: 70%;
+  background-size: 60px;
   background-repeat: no-repeat;
   background-position: center;
   align-self: center;
@@ -90,12 +97,15 @@ const HPStyled = styled.div`
 `
 const ACStyled = styled.p`
   text-align: center;
+  align-self: center;
   padding: 10px 0;
+  margin: 0;
   background-image: url(${shieldIcon});
   background-size: 37px;
   background-repeat: no-repeat;
   background-position: center;
-  p {
-    margin: 0;
-  }
+`
+const HPCalculatorContainer = styled.div`
+  grid-column: span 4;
+  align-self: center;
 `
