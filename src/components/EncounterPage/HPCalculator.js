@@ -50,6 +50,7 @@ const CounterStyled = styled.div`
 const InputStyled = styled.input`
   width: 55px;
   height: 30px;
+  text-align: center;
   position: relative;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {

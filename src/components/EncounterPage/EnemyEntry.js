@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import HPCalculator from './HPCalculator'
-import heartIcon from '../../assets/heart.svg'
 import shieldIcon from '../../assets/shield.svg'
 
 EnemyEntry.propTypes = {
@@ -27,12 +26,15 @@ export default function EnemyEntry({
   return (
     <EnemyEntryStyled active={index === activeIndex}>
       <p>{initiative}</p>
-      <h2>{enemyName}</h2>
+      <h1>{enemyName}</h1>
       <ACStyled>{armorClass}</ACStyled>
-      <HPStyled>
-        <p>{currentHP}/</p>
-        <p>{HP}</p>
-      </HPStyled>
+      <HPBarBorder>
+        <HPBar style={{ width: (currentHP / HP) * 100 + '%' }}>
+          <HPText>
+            {currentHP}/{HP}
+          </HPText>
+        </HPBar>
+      </HPBarBorder>
       <HPCalculatorContainer>
         <HPCalculator
           currentHP={currentHP}
@@ -66,12 +68,11 @@ const EnemyEntryStyled = styled.div`
       ? '0 0 15px var(--highlight-blue)'
       : '4px 4px 6px rgba(8, 15, 21, 0.3)'};
   border: ${(props) => props.active && '2px solid var(--highlight-blue)'};
-  h1 {
-    grid-row: span 3;
+  p {
     align-self: center;
     margin: 0;
   }
-  h2 {
+  h1 {
     grid-column: span 2;
     margin: 0;
     font-size: 1.8rem;
@@ -79,22 +80,29 @@ const EnemyEntryStyled = styled.div`
     align-self: center;
   }
 `
-const HPStyled = styled.div`
-  display: inline-block;
+const HPBar = styled.div`
+  background-color: var(--dark-red);
   text-align: center;
-
-  grid-column: span 4;
-  padding: 10px 0;
-  background-image: url(${heartIcon});
-  background-size: 60px;
-  background-repeat: no-repeat;
-  background-position: center;
-  align-self: center;
-
+  padding: 5px 0;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
   p {
     margin: 0;
   }
 `
+
+const HPBarBorder = styled.div`
+  grid-column: span 4;
+  margin: 5px;
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+`
+const HPText = styled.div`
+  margin: 0;
+  text-align: center;
+`
+
 const ACStyled = styled.p`
   text-align: center;
   align-self: center;
