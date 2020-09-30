@@ -4,4 +4,4 @@
 
 ### An app to help Game Masters run encounters in their DnD Games smoothly
 
-Apart from storytelling and roleplay, an integral part of Dungeons and Dragons is combat. Combat encounters can range from small fights that only last a few minutes to intense battles that last for multiple hours.
+Apart from storytelling and roleplay, an integral part of Dungeons and Dragons is combat. Combat encounters can range from small fights that only last a few minutes to intense battles that last for multiple hours. As a Game Master it is your task to manage those encounters. The Encounter Tracker is an app designed to help with that by keeping track of every important statistic for you, so you can keep a clear head and focus on having fun.

@@ -8,11 +8,11 @@ TurnButton.propTypes = {
   arrowSymbol: PropTypes.string.isRequired,
 }
 
-export default function TurnButton({ arrowSymbol, buttonText, onClick }) {
+export default function TurnButton({ upperText, lowerText, onClick }) {
   return (
     <ButtonStyled onClick={onClick}>
-      <p>{buttonText}</p>
-      <p>{arrowSymbol}</p>
+      <p>{upperText}</p>
+      <p>{lowerText}</p>
     </ButtonStyled>
   )
 }
@@ -20,7 +20,7 @@ export default function TurnButton({ arrowSymbol, buttonText, onClick }) {
 const ButtonStyled = styled.button`
   margin: 10px;
   padding: 5px;
-  width: 140px;
+  width: 100px;
   height: 60px;
   font-size: 100%;
   font-family: 'Gentium Book Basic', serif;
