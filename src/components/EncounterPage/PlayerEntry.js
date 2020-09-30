@@ -21,8 +21,8 @@ export default function PlayerEntry({
 }) {
   return (
     <PlayerEntryStyled active={index === activeIndex}>
-      <p>{playerInitiative}</p>
-      <h2>{playerName}</h2>
+      <InitiativeStyled>{playerInitiative}</InitiativeStyled>
+      <h1>{playerName}</h1>
       <ACStyled>{playerArmorClass}</ACStyled>
     </PlayerEntryStyled>
   )
@@ -50,21 +50,23 @@ const PlayerEntryStyled = styled.div`
   h1 {
     align-self: center;
     margin: 0;
-    font-size: 18px;
-    background-image: url(${d20Icon});
-    background-size: 47px;
-    background-repeat: no-repeat;
-  }
-  h2 {
-    margin: 0;
     font-size: 1.8rem;
-    align-self: center;
   }
+
   p {
     align-self: center;
     margin: 0;
   }
 `
+const InitiativeStyled = styled.p`
+  justify-self: center;
+  padding: 5px;
+  background-image: url(${d20Icon});
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+`
+
 const ACStyled = styled.p`
   text-align: center;
   padding: 10px 0;
