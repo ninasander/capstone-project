@@ -6,7 +6,7 @@ export default function HPCalculator({ setCurrentHP, currentHP, HP }) {
   const [hpInputValue, setHpInputValue] = useState('')
   return (
     <CounterStyled>
-      <CalculatorButton onClick={addToHP} operator="+" />
+      <CalculatorButton onClick={addToHP} operator="Healing" />
       <InputStyled
         min={0}
         value={hpInputValue}
@@ -17,7 +17,7 @@ export default function HPCalculator({ setCurrentHP, currentHP, HP }) {
         step="1"
       />
 
-      <CalculatorButton onClick={subtractFromHP} operator="-" />
+      <CalculatorButton onClick={subtractFromHP} operator="Damage" />
     </CounterStyled>
   )
   function handleChange(event) {
@@ -42,12 +42,15 @@ export default function HPCalculator({ setCurrentHP, currentHP, HP }) {
 
 const CounterStyled = styled.div`
   display: flex;
+  grid-gap: 10px;
   align-items: center;
   justify-content: center;
 `
 
 const InputStyled = styled.input`
-  width: 50px;
+  width: 55px;
+  height: 30px;
+  text-align: center;
   position: relative;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {

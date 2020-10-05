@@ -28,49 +28,53 @@ export default function EncounterPage({ creatureEntries }) {
     )
 
   return (
-    <>
-      {creaturesByInitiative.map((creatureEntry, index) =>
-        creatureEntry.enemyName ? (
-          <EnemyEntry
-            index={index}
-            activeIndex={activeIndex}
-            enemyName={creatureEntry.enemyName}
-            armorClass={creatureEntry.armorClass}
-            HP={creatureEntry.HP}
-            initiative={creatureEntry.initiative}
-            key={creatureEntry._id}
+    <EncounterPageStyled>
+      <EntryContainer>
+        {creaturesByInitiative.map((creatureEntry, index) =>
+          creatureEntry.enemyName ? (
+            <EnemyEntry
+              index={index}
+              activeIndex={activeIndex}
+              enemyName={creatureEntry.enemyName}
+              armorClass={creatureEntry.armorClass}
+              HP={creatureEntry.HP}
+              initiative={creatureEntry.initiative}
+              key={creatureEntry._id}
+            />
+          ) : (
+            <PlayerEntry
+              index={index}
+              activeIndex={activeIndex}
+              playerName={creatureEntry.playerName}
+              playerArmorClass={creatureEntry.playerArmorClass}
+              playerInitiative={creatureEntry.playerInitiative}
+              key={creatureEntry._id}
+            />
+          )
+        )}
+      </EntryContainer>
+      <EncounterPageFooter>
+        <PreviousButtonContainer>
+          <TurnButton
+            upperText="Previous"
+            lowerText="Turn"
+            onClick={setLastTurn}
           />
-        ) : (
-          <PlayerEntry
-            index={index}
-            activeIndex={activeIndex}
-            playerName={creatureEntry.playerName}
-            playerArmorClass={creatureEntry.playerArmorClass}
-            playerInitiative={creatureEntry.playerInitiative}
-            key={creatureEntry._id}
-          />
-        )
-      )}
-      <ButtonContainer>
-        <TurnButton
-          buttonText="Previous Turn"
-          arrowSymbol={'←'}
-          onClick={setLastTurn}
-        />
-        <TurnButton
-          buttonText="Next Turn"
-          arrowSymbol={'→'}
-          onClick={setNextTurn}
-        />
-      </ButtonContainer>
-      <TurnCounterStyled>
-        Turn: {turnNumber}/{creaturesByInitiative.length}
-      </TurnCounterStyled>
-      <RoundCounterStyled>Round: {roundNumber}</RoundCounterStyled>
-      <LinkStyled href="/">
-        <PageButton onClick={onEndEncounter} buttonText="End Encounter" />
-      </LinkStyled>
-    </>
+        </PreviousButtonContainer>
+        <TurnCounterStyled>
+          Turn: {turnNumber}/{creaturesByInitiative.length}
+        </TurnCounterStyled>
+        <RoundCounterStyled>Round: {roundNumber}</RoundCounterStyled>
+        <NextButtonContainer>
+          <TurnButton upperText="Next" lowerText="Turn" onClick={setNextTurn} />
+        </NextButtonContainer>
+        <EndEncounterButtonContainer>
+          <LinkStyled href="/">
+            <PageButton onClick={onEndEncounter} buttonText="End Encounter" />
+          </LinkStyled>
+        </EndEncounterButtonContainer>
+      </EncounterPageFooter>
+    </EncounterPageStyled>
   )
 
   function setNextTurn() {
@@ -110,9 +114,17 @@ export default function EncounterPage({ creatureEntries }) {
   }
 }
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
+const EncounterPageStyled = styled.div`
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+`
+const EntryContainer = styled.div`
+  margin-bottom: 180px;
+`
+
+const PreviousButtonContainer = styled.div`
+  grid-row: span 2;
 `
 
 const TurnCounterStyled = styled.p`
@@ -122,12 +134,30 @@ const TurnCounterStyled = styled.p`
   text-align: center;
 `
 const RoundCounterStyled = styled.p`
+  grid-row: 2;
+  grid-column: 2;
   color: white;
   font-size: 112.5%;
   margin: 10px;
   text-align: center;
 `
+const NextButtonContainer = styled.div`
+  grid-row: span 2;
+`
 
 const LinkStyled = styled.a`
   text-decoration: none;
+`
+const EndEncounterButtonContainer = styled.div`
+  grid-column: span 3;
+`
+const EncounterPageFooter = styled.footer`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding-bottom: 20px;
+  background: var(--dark-blue);
+  box-shadow: 0 -10px 15px var(--dark-blue);
 `

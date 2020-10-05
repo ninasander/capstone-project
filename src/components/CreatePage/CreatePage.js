@@ -49,8 +49,8 @@ export default function CreatePage({
           type="button"
           buttonText={
             isEnemyPreviewVisible
-              ? 'Hide Created Enemies ▲'
-              : 'Show Created Enemies ▼'
+              ? 'Hide Enemy Preview ▲'
+              : 'Show Enemy Preview ▼'
           }
           onClick={toggleEnemyPreview}
         />
@@ -79,8 +79,8 @@ export default function CreatePage({
           type="button"
           buttonText={
             isPlayerPreviewVisible
-              ? 'Hide Created Players ▲'
-              : 'Show Created Players ▼'
+              ? 'Hide Player Preview ▲'
+              : 'Show Player Preview ▼'
           }
           onClick={togglePlayerPreview}
         />
