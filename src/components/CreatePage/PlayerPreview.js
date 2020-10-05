@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import DisplayPlayerAndEnemy from '../EncounterPage/DisplayPlayerAndEnemy'
 
 PlayerPreview.propTypes = {
   creatureEntry: PropTypes.object.isRequired,
@@ -15,14 +16,22 @@ export default function PlayerPreview({
 }) {
   return (
     <>
-      <DeleteButtonStyled onClick={handleDeleteClick} id={creatureEntry._id}>
-        ✕
-      </DeleteButtonStyled>
       <PlayerEntryStyled>
-        <h1>{creatureEntry.playerInitiative}</h1>
-        <h2>{creatureEntry.playerName}</h2>
-        <p>AC: {creatureEntry.playerArmorClass}</p>
-        <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
+        <DisplayPlayerAndEnemy
+          initiative={creatureEntry.playerInitiative}
+          name={creatureEntry.playerName}
+          armorClass={creatureEntry.playerArmorClass}
+          width="28"
+        />
+        <ButtonContainer>
+          <EditButtonStyled onClick={handleEditClick}>Edit</EditButtonStyled>
+          <DeleteButtonStyled
+            onClick={handleDeleteClick}
+            id={creatureEntry._id}
+          >
+            Delete
+          </DeleteButtonStyled>
+        </ButtonContainer>
       </PlayerEntryStyled>
     </>
   )
@@ -34,37 +43,14 @@ export default function PlayerPreview({
   }
 }
 
-const DeleteButtonStyled = styled.button`
-  color: red;
-  margin: 0;
-  padding: 0;
-  background: none;
-  border-style: none;
-  font-size: 110%;
-  position: relative;
-  left: 285px;
-  top: 35px;
-  z-index: 100;
-`
-const EditButtonStyled = styled.button`
-  color: green;
-  background: lightgreen;
-  border-style: none;
-  grid-column: span 3;
-  border-radius: 5px;
-  padding: 5px 20px;
-  margin: 0;
-  width: fit-content;
-  justify-self: center;
-`
-
 const PlayerEntryStyled = styled.div`
-  font-size: 80%;
-  margin: 0 20px;
+  margin: 20px;
   padding: 20px;
   display: grid;
-
-  grid-template-columns: 1fr 3fr;
+  grid-gap: 5px 20px;
+  justify-content: space-between;
+  grid-template-columns: 1fr 2fr 2fr;
+  background: hsla(208, 40%, 28%, 1);
   background: linear-gradient(
       180deg,
       hsla(208, 40%, 28%, 1) 0%,
@@ -75,17 +61,31 @@ const PlayerEntryStyled = styled.div`
   color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 6px rgba(8, 15, 21, 0.3);
-  h1 {
-    align-self: center;
-    margin: 10px 0;
-  }
+
   h2 {
-    margin: 0;
-    font-size: 140%;
-    align-self: center;
+    font-size: 1.5rem;
   }
-  p {
-    align-self: center;
-    margin: 0 20px;
-  }
+`
+const ButtonContainer = styled.div`
+  grid-column: span 3;
+  justify-self: center;
+`
+
+const DeleteButtonStyled = styled.button`
+  color: var(--dark-red);
+  background: var(--light-red);
+  border-style: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 5px 0 0 5px;
+  width: fit-content;
+`
+const EditButtonStyled = styled.button`
+  color: var(--dark-green);
+  background: var(--light-green);
+  border-style: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 5px 5px 0 0;
+  width: fit-content;
 `

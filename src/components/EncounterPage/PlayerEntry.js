@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import shieldIcon from '../../assets/shield.svg'
-import d20Icon from '../../assets/d20.svg'
+import DisplayPlayerAndEnemy from './DisplayPlayerAndEnemy'
 
 PlayerEntry.propTypes = {
   playerName: PropTypes.string.isRequired,
@@ -21,9 +20,11 @@ export default function PlayerEntry({
 }) {
   return (
     <PlayerEntryStyled active={index === activeIndex}>
-      <InitiativeStyled>{playerInitiative}</InitiativeStyled>
-      <h1>{playerName}</h1>
-      <ACStyled>{playerArmorClass}</ACStyled>
+      <DisplayPlayerAndEnemy
+        initiative={playerInitiative}
+        name={playerName}
+        armorClass={playerArmorClass}
+      />
     </PlayerEntryStyled>
   )
 }
@@ -47,7 +48,7 @@ const PlayerEntryStyled = styled.div`
       ? '0 0 15px var(--highlight-blue)'
       : '4px 4px 6px rgba(8, 15, 21, 0.3)'};
   border: ${(props) => props.active && '2px solid var(--highlight-blue)'};
-  h1 {
+  /* h1 {
     align-self: center;
     margin: 0;
     font-size: 1.8rem;
@@ -56,25 +57,25 @@ const PlayerEntryStyled = styled.div`
   p {
     align-self: center;
     margin: 0;
-  }
+  } */
 `
-const InitiativeStyled = styled.p`
-  justify-self: center;
-  padding: 5px;
-  background-image: url(${d20Icon});
-  background-position: center;
-  background-size: 30px;
-  background-repeat: no-repeat;
-`
+// const InitiativeStyled = styled.p`
+//   justify-self: center;
+//   padding: 5px;
+//   background-image: url(${d20Icon});
+//   background-position: center;
+//   background-size: 30px;
+//   background-repeat: no-repeat;
+// `
 
-const ACStyled = styled.p`
-  text-align: center;
-  padding: 10px 0;
-  background-image: url(${shieldIcon});
-  background-size: 37px;
-  background-repeat: no-repeat;
-  background-position: center;
-  p {
-    margin: 0;
-  }
-`
+// const ACStyled = styled.p`
+//   text-align: center;
+//   padding: 10px 0;
+//   background-image: url(${shieldIcon});
+//   background-size: 37px;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   p {
+//     margin: 0;
+//   }
+// `
